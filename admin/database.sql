@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS admin_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS blog_posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    meta_title VARCHAR(255),
+    meta_description TEXT,
+    category VARCHAR(100) DEFAULT 'Mental Wellness',
+    author VARCHAR(100) DEFAULT 'Monika Arora',
+    image_alt VARCHAR(255),
+    excerpt TEXT,
+    content LONGTEXT NOT NULL,
+    image_path VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

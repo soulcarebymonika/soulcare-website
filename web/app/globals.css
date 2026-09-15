@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Sandy Shores palette */
+  --color-primary: #CBA378;
+  /* warm tan */
+  --color-secondary: #F0EFE9;
+  /* near-white off-white — background */
+  --color-accent: #9C4719;
+  /* burnt orange — CTAs / highlights */
+  --color-navy: #2E4C63;
+  /* deep teal — headings / dark sections */
+  --color-text: #2C2927;
+  /* near black — body text */
+  --color-text-muted: #B8B8AC;
+  /* sage grey — muted / borders */
+
+  --color-background: var(--color-secondary);
+  --color-foreground: var(--color-text);
+
+  --font-heading: var(--font-heading), serif;
+  --font-body: var(--font-body), sans-serif;
+}
+
+:root {
+  /* Sandy Shores palette */
+  --color-primary: #CBA378;
+  --color-secondary: #F0EFE9;
+  --color-accent: #9C4719;
+  --color-navy: #2E4C63;
+  --color-text: #2C2927;
+  --color-text-muted: #B8B8AC;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  /* Apply soft text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* WordPress Blog Content Typography Styles */
+.blog-content h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.blog-content h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.blog-content p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.blog-content a:hover {
+  opacity: 0.8;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  color: var(--color-text);
+  background-color: rgba(240, 239, 233, 0.3); /* secondary with opacity */
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.blog-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem auto;
+  display: block;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 16px;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid var(--color-text-muted);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.blog-content th {
+  background-color: var(--color-secondary);
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.blog-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background-color: rgba(240, 239, 233, 0.7);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 85%;
+  color: var(--color-accent);
+}
+
+.blog-content pre {
+  background-color: var(--color-text);
+  color: var(--color-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.blog-content pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+}

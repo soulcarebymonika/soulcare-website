@@ -1,0 +1,39 @@
+# ═══════════════════════════════════════════════════════
+# Soulcare — Parent Repository .gitignore
+# ═══════════════════════════════════════════════════════
+# This repo (Soulcare/) is LOCAL ONLY — no remote is configured.
+# This .gitignore is a safety net: even if a remote is ever accidentally
+# added, none of these private files can be pushed.
+# ═══════════════════════════════════════════════════════
+
+# ─── Documentation & internal notes (local only) ───────
+_docs/
+PRD
+SEO
+user_flow
+
+# ─── Design assets & reference materials ───────────────
+_design_assets/
+
+# ─── Raw media files (too large / private) ─────────────
+*.mp4
+*.jpg
+*.jpeg
+*.jfif
+*.png
+*.pdf
+
+# ─── Web project sensitive files ───────────────────────
+web/.env
+web/.env.*
+web/soulcare.db
+web/*.db
+web/*.db-journal
+web/.next/
+web/node_modules/
+
+# ─── OS / editor junk ──────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
