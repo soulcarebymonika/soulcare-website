@@ -8,7 +8,7 @@ define('DB_NAME', 'u652950911_blogs');
 
 // Vercel Deploy Hook URL
 // PASTE YOUR URL BELOW BETWEEN THE QUOTES
-define('VERCEL_DEPLOY_HOOK_URL', '');
+define('VERCEL_DEPLOY_HOOK_URL', 'https://api.vercel.com/v1/integrations/deploy/prj_yJVhxtwSNMLDfltviFmbAB3coTQT/i9ZfTIK1s9');
 
 
 try {
