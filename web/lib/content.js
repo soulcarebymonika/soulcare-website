@@ -87,6 +87,22 @@ export const categoryServices = {
     { id: "blended", title: "Blended Families", description: "Working through the unique dynamics of step-families, co-parenting boundaries, and adjusting to new structures.", image: "/images/sessions/adolescence_friendship.png" },
     { id: "grief", title: "Grief & Shared Loss", description: "Supporting each other through the painful loss of a family member, and finding space to grieve in your own ways.", image: "/images/sessions/adolescence_alone.png" },
     { id: "family-resilience", title: "Home Connection", description: "Improving how you talk to each other daily, reducing constant friction, and building a supportive home environment.", image: "/images/sessions/adolescence_family.png" }
+  ],
+  "personal-growth": [
+    { id: "psychosynthesis", title: "Psychosynthesis Life Coaching", description: "Integrating the intellectual, emotional, and physical aspects of oneself for a more harmonious life.", image: "/images/sessions/adolescence_emotions.png" },
+    { id: "life-coaching", title: "Life Coaching", description: "Goal-oriented support to help you gain clarity, overcome obstacles, and achieve your personal or professional ambitions.", image: "/images/sessions/adolescence_identity.png" },
+    { id: "personality-development", title: "Personality Development", description: "Exploring and refining your personal traits to build stronger interpersonal skills and self-awareness.", image: "/images/sessions/adolescence_school.png" },
+    { id: "emotional-intelligence", title: "Emotional Intelligence", description: "Learning to understand, use, and manage your own emotions in positive ways to relieve stress and empathize with others.", image: "/images/sessions/adolescence_friendship.png" },
+    { id: "guided-meditation", title: "Guided Meditation", description: "Techniques to help you center yourself, quiet the mind, and foster a deeper sense of inner peace.", image: "/images/sessions/adolescence_alone.png" },
+    { id: "self-esteem", title: "Self-Esteem & Confidence", description: "Overcoming self-doubt and building a strong, resilient sense of self-worth.", image: "/images/sessions/adolescence_emotions.png" }
+  ],
+  "specialized-support": [
+    { id: "emdr-trauma", title: "EMDR & Trauma Support", description: "Evidence-based therapeutic approaches designed to help you process and heal from distressing or traumatic past experiences.", image: "/images/sessions/adolescence_alone.png" },
+    { id: "addiction-support", title: "Addiction Support", description: "A non-judgmental space to explore dependencies, understand triggers, and develop healthier coping mechanisms.", image: "/images/sessions/adolescence_family.png" },
+    { id: "group-therapy", title: "Group Therapy", description: "Connecting with others facing similar challenges in a guided, supportive environment to foster shared healing.", image: "/images/sessions/adolescence_friendship.png" },
+    { id: "grief-counselling", title: "Grief & Bereavement", description: "Navigating the complex, often overwhelming emotions of loss and finding a meaningful path forward.", image: "/images/sessions/adolescence_emotions.png" },
+    { id: "chronic-illness", title: "Chronic Illness Support", description: "Emotional support and coping strategies for individuals managing chronic pain or long-term health conditions.", image: "/images/sessions/adolescence_alone.png" },
+    { id: "eating-disorder", title: "Body Image & Recovery", description: "Compassionate care to help build a healthier relationship with food, body image, and self-worth.", image: "/images/sessions/adolescence_identity.png" }
   ]
 };
 

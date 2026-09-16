@@ -15,7 +15,7 @@ if (isset($_GET['slug'])) {
     if ($post) {
         // Prepend the localhost URL to the image path if it's not empty
         if ($post['image_path']) {
-            $post['image_path'] = 'http://localhost:8000/' . $post['image_path'];
+            $post['image_path'] = 'http://localhost:8000/admin/' . $post['image_path'];
         }
         echo json_encode(["status" => "success", "data" => $post]);
     } else {
@@ -29,7 +29,7 @@ if (isset($_GET['slug'])) {
 
     foreach ($posts as &$post) {
         if ($post['image_path']) {
-            $post['image_path'] = 'http://localhost:8000/' . $post['image_path'];
+            $post['image_path'] = 'http://localhost:8000/admin/' . $post['image_path'];
         }
     }
 

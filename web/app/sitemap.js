@@ -1,9 +1,10 @@
-import { blogPosts, categoryServices } from "@/lib/content";
+import { categoryServices } from "@/lib/content";
+import { getPosts } from "@/lib/api";
 
 export const dynamic = 'force-static';
 
-export default function sitemap() {
-  const baseUrl = 'https://soulcare.example.com';
+export default async function sitemap() {
+  const baseUrl = 'https://soulcarebymonika.com';
   
   // 1. Static Routes
   const staticRoutes = [
@@ -23,9 +24,13 @@ export default function sitemap() {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
+  // Fetch dynamic posts from API
+  const posts = await getPosts();
+
   // 2. Dynamic Blog Routes
-  const blogRoutes = blogPosts.map((post) => ({
+  const blogRoutes = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.updated_at ? new Date(post.updated_at) : new Date(post.created_at || new Date()),
     changeFrequency: 'weekly',
     priority: 0.6,
   }));

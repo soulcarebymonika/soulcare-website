@@ -6,6 +6,11 @@ define('DB_USERNAME', 'u652950911_monika_admin');
 define('DB_PASSWORD', 'K$SG|D@6!9z'); // <-- ENTER YOUR PASSWORD HERE
 define('DB_NAME', 'u652950911_blogs');
 
+// Vercel Deploy Hook URL
+// PASTE YOUR URL BELOW BETWEEN THE QUOTES
+define('VERCEL_DEPLOY_HOOK_URL', '');
+
+
 try {
     $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
     // Set PDO error mode to exception

@@ -1,9 +1,37 @@
 import Link from "next/link";
 import { siteInfo } from "@/lib/content";
+import FAQSection from "@/components/FAQSection";
+
+const privacyFaqs = [
+  {
+    question: "Is my personal information kept secure?",
+    answer: "Yes, we take reasonable administrative and technical measures to protect your personal information from unauthorized access, misuse, alteration, disclosure, or loss."
+  },
+  {
+    question: "Will my information be shared with third parties?",
+    answer: "We do not sell or rent your personal information. It is only shared with trusted third-party services (like scheduling or hosting platforms) that are necessary to provide our services, or when required by law."
+  },
+  {
+    question: "Are counselling sessions strictly confidential?",
+    answer: "Yes, information shared during counselling is treated confidentially. The only exceptions are when disclosure is required by law, such as situations involving a serious and immediate risk of harm to yourself or others."
+  },
+  {
+    question: "Do you use cookies on your website?",
+    answer: "Yes, we use cookies and similar technologies to understand website usage, improve functionality, and enhance your overall experience on our site."
+  },
+  {
+    question: "How long do you retain my data?",
+    answer: "We retain your information only for as long as reasonably necessary to provide counselling services, manage appointments, and meet applicable legal and professional obligations."
+  },
+  {
+    question: "How can I request access to or deletion of my data?",
+    answer: "You can make privacy-related requests, such as accessing, correcting, or deleting your personal information, by contacting us directly via the email or phone number provided on this page."
+  }
+];
 
 export const metadata = {
-  title: 'Privacy Policy | SoulCare by Monika Arora',
-  description: 'Read the SoulCare privacy policy to understand how personal information is collected, used, protected, and handled during counselling services.',
+  title: 'Privacy Policy | Soulcare by Monika Arora',
+  description: 'Read the Soulcare privacy policy to understand how personal information is collected, used, protected, and handled during counselling services.',
   alternates: {
     canonical: '/privacy',
   }
@@ -22,7 +50,7 @@ export default function PrivacyPolicy() {
           Privacy Policy
         </h1>
         <p className="text-base md:text-lg leading-relaxed text-[#6A80A6] max-w-2xl mx-auto">
-          Your privacy matters. This page explains how SoulCare handles information shared through our website and counselling services.
+          Your privacy matters. This page explains how Soulcare handles information shared through our website and counselling services.
         </p>
       </section>
 
@@ -35,7 +63,7 @@ export default function PrivacyPolicy() {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed mb-6">
-            At SoulCare by Monika Arora, your privacy, trust, and confidentiality are important to us. This Privacy Policy explains how we collect, use, store, and protect information when you visit our website, contact us, or use our counselling services.
+            At Soulcare by Monika Arora, your privacy, trust, and confidentiality are important to us. This Privacy Policy explains how we collect, use, store, and protect information when you visit our website, contact us, or use our counselling services.
           </p>
           <p className="text-base md:text-lg leading-relaxed mb-12">
             By using this website, you acknowledge the practices described in this Privacy Policy.
@@ -51,7 +79,7 @@ export default function PrivacyPolicy() {
               </div>
               <div className="space-y-4 text-base leading-relaxed">
                 <p>
-                  We may collect information that you voluntarily provide when you contact SoulCare, enquire about counselling, request an appointment, or submit information through our website.
+                  We may collect information that you voluntarily provide when you contact Soulcare, enquire about counselling, request an appointment, or submit information through our website.
                 </p>
                 <p>This may include:</p>
                 <ul className="list-disc pl-5 space-y-2 text-[#6A80A6]">
@@ -127,7 +155,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-2xl font-heading text-[#3E4A3D]">Online Counselling</h2>
               </div>
               <div className="space-y-4 text-base leading-relaxed">
-                <p>SoulCare may provide counselling sessions online.</p>
+                <p>Soulcare may provide counselling sessions online.</p>
                 <p>
                   When using online counselling services, information may be transmitted through third-party communication or scheduling platforms. While reasonable steps are taken to protect your privacy, no internet-based communication system can guarantee complete security.
                 </p>
@@ -163,7 +191,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-2xl font-heading text-[#3E4A3D]">Third-Party Services</h2>
               </div>
               <div className="space-y-4 text-base leading-relaxed">
-                <p>SoulCare may use trusted third-party services for purposes such as:</p>
+                <p>Soulcare may use trusted third-party services for purposes such as:</p>
                 <ul className="list-disc pl-5 space-y-2 text-[#6A80A6]">
                   <li>Website hosting</li>
                   <li>Appointment scheduling</li>
@@ -251,7 +279,7 @@ export default function PrivacyPolicy() {
               </div>
               <div className="space-y-4 text-base leading-relaxed">
                 <p>
-                  SoulCare may provide counselling support to children and adolescents where appropriate.
+                  Soulcare may provide counselling support to children and adolescents where appropriate.
                 </p>
                 <p>
                   For counselling involving a child or adolescent, appropriate consideration is given to the young person's privacy, safety, developmental needs, and the involvement or consent of a parent or legal guardian where required.
@@ -279,7 +307,7 @@ export default function PrivacyPolicy() {
                   Our website may contain links to external websites or services.
                 </p>
                 <p>
-                  SoulCare is not responsible for the privacy practices, security, or content of third-party websites. We encourage you to review the privacy policy of any external website before providing personal information.
+                  Soulcare is not responsible for the privacy practices, security, or content of third-party websites. We encourage you to review the privacy policy of any external website before providing personal information.
                 </p>
               </div>
             </div>
@@ -311,12 +339,12 @@ export default function PrivacyPolicy() {
               We're here if you have questions.
             </h2>
             <p className="text-base md:text-lg leading-relaxed text-[#6A80A6] max-w-2xl mx-auto mb-10">
-              If you have questions about this Privacy Policy or how your information is handled, please contact SoulCare.
+              If you have questions about this Privacy Policy or how your information is handled, please contact Soulcare.
             </p>
             
             <div className="bg-[#FAF9F6] p-8 md:p-10 rounded-lg inline-block text-left w-full max-w-lg mx-auto">
               <div className="mb-6">
-                <p className="font-heading text-xl text-[#3E4A3D]">SoulCare by Monika Arora</p>
+                <p className="font-heading text-xl text-[#3E4A3D]">Soulcare by Monika Arora</p>
                 <p className="text-sm font-bold tracking-widest uppercase text-[#D4A373] mt-1">Counselling Psychologist</p>
               </div>
               
@@ -327,7 +355,7 @@ export default function PrivacyPolicy() {
                 </div>
                 <div>
                   <p className="font-bold text-[#3E4A3D]">Online counselling:</p>
-                  <p>Available in India and abroad</p>
+                  <p>Available in India and Abroad</p>
                 </div>
                 <div>
                   <p className="font-bold text-[#3E4A3D]">Email:</p>
@@ -345,13 +373,17 @@ export default function PrivacyPolicy() {
                 href="/book-a-session"
                 className="inline-block px-10 py-4 bg-[#6A80A6] text-white text-xs font-bold tracking-[0.2em] uppercase transition-all hover:bg-[#3E4A3D] rounded-md shadow-sm hover:shadow-md"
               >
-                Contact SoulCare
+                Contact Soulcare
               </Link>
             </div>
           </div>
 
         </div>
       </section>
+
+      {/* FAQ SECTION */}
+      <FAQSection faqs={privacyFaqs} title="Frequently Asked Questions About Privacy" />
+
     </div>
   );
 }

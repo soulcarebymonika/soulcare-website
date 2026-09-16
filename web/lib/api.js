@@ -1,6 +1,8 @@
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 export async function getPosts() {
   try {
-    const res = await fetch("http://localhost:8000/api.php", {
+    const res = await fetch(`${API_BASE_URL}/admin/api.php`, {
       next: { revalidate: 0 }, // no cache for dev
     });
     if (!res.ok) throw new Error("Failed to fetch posts");
@@ -14,7 +16,7 @@ export async function getPosts() {
 
 export async function getPost(slug) {
   try {
-    const res = await fetch(`http://localhost:8000/api.php?slug=${slug}`, {
+    const res = await fetch(`${API_BASE_URL}/admin/api.php?slug=${slug}`, {
       next: { revalidate: 0 },
     });
     if (!res.ok) throw new Error("Failed to fetch post");

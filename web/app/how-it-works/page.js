@@ -1,5 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
+import FAQSection from "@/components/FAQSection";
+
+const howItWorksFaqs = [
+  {
+    question: "What is your general approach to therapy?",
+    answer: "I take a relational and whole-person approach. This means we look beyond just managing symptoms and focus on understanding yourself, finding inner balance, and developing a deeper sense of connection and meaning."
+  },
+  {
+    question: "Will you tell me what to do during sessions?",
+    answer: "No. Therapy with me is a guided, collaborative process. The goal is not to tell you what to do, but to help you develop the understanding and tools to make choices that feel right for you."
+  },
+  {
+    question: "How does Cognitive Behavioural Therapy (CBT) work?",
+    answer: "Through CBT-informed work, we explore the connection between your thoughts, emotions, and behaviours. We identify patterns that may be keeping you stuck and develop practical strategies to respond to difficult situations in healthier ways."
+  },
+  {
+    question: "Do you incorporate spirituality into therapy?",
+    answer: "I respect every individual's beliefs. While I do not impose any particular belief system, spirituality can be acknowledged as a personal resource that supports emotional well-being, if it is appropriate and comfortable for you."
+  },
+  {
+    question: "How do I get started?",
+    answer: "We begin with a complimentary 15-minute consultation call. This gives us a chance to see if we're a good fit and allows you to ask any questions before committing to a full session."
+  },
+  {
+    question: "Do you offer virtual or in-person sessions?",
+    answer: "I offer flexible scheduling with both virtual online sessions and in-person sessions in Dehradun."
+  }
+];
 
 export const metadata = {
   title: 'My Approach | Soulcare by Monika Arora',
@@ -179,7 +207,7 @@ export default function HowItWorks() {
               Life can sometimes leave us feeling emotionally overwhelmed, disconnected, or uncertain about our direction. In such moments, reconnecting with yourself can become an important part of healing.
             </p>
             <p>
-              For me, SoulCare represents this connection between self-awareness, emotional well-being, and inner balance.
+              For me, Soulcare represents this connection between self-awareness, emotional well-being, and inner balance.
             </p>
             <p className="font-bold text-[#6A80A6] text-xl md:text-2xl mt-8">
               Sometimes healing begins when we become quiet enough to listen to what is happening within us.
@@ -253,6 +281,9 @@ export default function HowItWorks() {
           </div>
         </div>
       </section>
+
+      {/* FAQ SECTION */}
+      <FAQSection faqs={howItWorksFaqs} title="Frequently Asked Questions About My Approach" />
 
     </div>
   );

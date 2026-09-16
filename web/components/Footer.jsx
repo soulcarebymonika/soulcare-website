@@ -47,7 +47,7 @@ export default function Footer() {
               <div className="relative w-14 h-14 sm:w-16 sm:h-16 overflow-hidden rounded-full bg-white shadow-md transition-transform duration-500 ease-out group-hover:scale-105">
                 <Image 
                   src="/images/logo_soulcare.webp" 
-                  alt="SoulCare Logo" 
+                  alt="Soulcare Logo" 
                   fill 
                   className="object-cover"
                 />
@@ -56,7 +56,7 @@ export default function Footer() {
                 <h3
                   className="font-heading text-xl sm:text-2xl lg:text-3xl font-medium leading-none mb-1.5 transition-opacity duration-300 group-hover:opacity-80 text-secondary"
                 >
-                  SoulCare
+                  Soulcare
                 </h3>
                 <p
                   className="text-[9px] sm:text-[10px] lg:text-xs font-bold tracking-[0.2em] uppercase leading-none text-secondary/80"
@@ -157,7 +157,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-[10.5px] font-bold tracking-[0.15em] uppercase text-secondary mb-1">Online counselling</p>
-                <p className="text-[13.5px] text-secondary/75">Available in India and abroad</p>
+                <p className="text-[13.5px] text-secondary/75">Available in India and Abroad</p>
               </div>
               <div>
                 <p className="text-[10.5px] font-bold tracking-[0.15em] uppercase text-secondary mb-1">Languages</p>

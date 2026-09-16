@@ -1,6 +1,7 @@
 import BlogPostCard from "@/components/BlogPostCard";
 import { getPosts } from "@/lib/api";
 
+
 export const metadata = {
   title: "Blog",
   description:

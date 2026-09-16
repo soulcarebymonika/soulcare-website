@@ -1,9 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
+import FAQSection from "@/components/FAQSection";
+
+const aboutFaqs = [
+  {
+    question: "What qualifications does Monika Arora hold?",
+    answer: "I hold an academic background in Psychology, Guidance & Counselling, and Child Guidance & Counselling."
+  },
+  {
+    question: "What is your experience in counselling?",
+    answer: "Since starting Soulcare in May 2025, I have supported over 100 clients. Prior to this, I gained valuable experience working in educational settings like MKP College and interning at rehabilitation centres such as Maanavta."
+  },
+  {
+    question: "What therapeutic approaches do you use?",
+    answer: "I primarily use Cognitive Behaviour Therapy (CBT) and a Psychodynamic-Informed Approach, always tailoring my methods to create a safe, non-judgmental space for each individual."
+  },
+  {
+    question: "Who do you typically work with?",
+    answer: "I work with adolescents and adults navigating a wide range of concerns including stress, anxiety, relationship and family issues, academic or career challenges, and life transitions."
+  },
+  {
+    question: "Do I need to have a major psychological problem to seek counselling?",
+    answer: "Not at all. Life can simply feel overwhelming at times. Counselling is a valuable space for anyone who wants to slow down, understand themselves better, and talk freely without judgment."
+  }
+];
 
 export const metadata = {
   title: 'About Monika Arora | Counselling Psychologist',
-  description: 'Meet Monika Arora, a Counselling Psychologist and Guidance Professional offering a warm, supportive space for adolescents and adults through SoulCare.',
+  description: 'Meet Monika Arora, a Counselling Psychologist and Guidance Professional offering a warm, supportive space for adolescents and adults through Soulcare.',
 };
 
 export default function About() {
@@ -23,7 +47,7 @@ export default function About() {
               Hello, I'm Monika Arora
             </h1>
             <p className="text-xl md:text-2xl text-[#3E4A3D] font-serif mb-6 md:mb-8">
-              Counselling Psychologist & Guidance Professional
+              Counselling Psychologist | Psychological Support | CBT &amp; Psychodynamic-Informed Approach
             </p>
             <p className="text-[#545D52] text-lg md:text-[17px] leading-[1.7] border-l-2 border-[#C86D39] pl-6 py-1 italic max-w-lg">
               "I believe counselling begins with creating a space where you can feel heard, understood and free to be yourself."
@@ -102,13 +126,13 @@ export default function About() {
               </div>
               <div className="w-full md:w-1/2 space-y-6 md:space-y-7 py-2 flex flex-col justify-center">
                 <p>
-                  My exposure at a rehabilitation centre and internship with Manavta brought me face-to-face with diverse emotional concerns. These experiences taught me that everyone has a unique story and that people don't always need immediate advice—sometimes, they simply need a safe space to reflect and make sense of what they are feeling.
+                  My exposure at a rehabilitation centre and internship with Maanavta brought me face-to-face with diverse emotional concerns. These experiences taught me that everyone has a unique story and that people don't always need immediate advice—sometimes, they simply need a safe space to reflect and make sense of what they are feeling.
                 </p>
                 <p>
-                  Since starting SoulCare in May 2025, I’ve had the opportunity to support more than 50 clients. I work with adolescents and adults navigating stress, anxiety, emotional difficulties, relationship and family concerns, academic or career challenges, life transitions, and addiction-related concerns.
+                  Since starting Soulcare in May 2025, I’ve had the opportunity to support more than 100 clients. I work with adolescents and adults navigating stress, anxiety, emotional difficulties, relationship and family concerns, academic or career challenges, life transitions, and addiction-related concerns.
                 </p>
                 <p>
-                  You do not need to be experiencing a major psychological problem to seek counselling; life can simply feel overwhelming at times. I created SoulCare to make this process approachable, private, and meaningful—giving you the space to slow down and understand yourself.
+                  You do not need to be experiencing a major psychological problem to seek counselling; life can simply feel overwhelming at times. I created Soulcare to make this process approachable, private, and meaningful—giving you the space to slow down and understand yourself.
                 </p>
               </div>
             </div>
@@ -127,6 +151,9 @@ export default function About() {
         </div>
       </section>
 
+      {/* FAQ SECTION */}
+      <FAQSection faqs={aboutFaqs} title="Frequently Asked Questions About My Practice" />
+
       {/* FINAL CLOSING & CTA */}
       <section className="bg-[#FAF9F6] py-12 md:py-16 text-center border-t border-[#EFE6D6]">
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
@@ -134,7 +161,7 @@ export default function About() {
             If something has been weighing on you, you don't have to carry it alone.
           </h2>
           <p className="text-[#545D52] text-[16px] md:text-[17px] mb-10 font-body max-w-2xl leading-[1.7]">
-            Whenever you feel ready, SoulCare is here to give you a space to pause, talk and be heard.
+            Whenever you feel ready, Soulcare is here to give you a space to pause, talk and be heard.
           </p>
           <Link 
             href="/book-a-session" 

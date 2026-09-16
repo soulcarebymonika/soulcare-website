@@ -4,6 +4,38 @@ import { ArrowRight } from 'lucide-react';
 import { siteInfo, about, testimonials } from "@/lib/content";
 import TestimonialSlider from '@/components/TestimonialSlider';
 import ConcernsAccordion from '@/components/ConcernsAccordion';
+import FAQSection from '@/components/FAQSection';
+
+const homeFaqs = [
+  {
+    question: "What is Cognitive Behaviour Therapy (CBT)?",
+    answer: "CBT helps clients identify unhelpful thought patterns and develop healthier emotional and behavioural responses."
+  },
+  {
+    question: "What is a Person-Centred Approach?",
+    answer: "It focuses on creating a safe, empathetic and non-judgmental space where clients can explore their emotions and experiences openly."
+  },
+  {
+    question: "How does the Psychodynamic-Informed Approach work?",
+    answer: "This approach explores underlying emotional patterns, past experiences, defence mechanisms and relationship dynamics that may influence present difficulties."
+  },
+  {
+    question: "What is Rational Emotive Behaviour Therapy (REBT)?",
+    answer: "REBT works with unhelpful or irrational beliefs that contribute to emotional distress and helps in developing more balanced ways of thinking."
+  },
+  {
+    question: "What is Solution-Focused Brief Therapy?",
+    answer: "This therapy focuses on strengths, practical solutions and achievable goals to help clients move forward."
+  },
+  {
+    question: "What does Supportive Counselling involve?",
+    answer: "It involves providing emotional support, coping strategies and guidance during challenging periods and life transitions."
+  },
+  {
+    question: "How are Mindfulness-Based Techniques used?",
+    answer: "These techniques use mindfulness and awareness to support emotional regulation, stress management and greater self-awareness."
+  }
+];
 
 // Sandy Shores palette (from globals.css)
 // --color-primary:    #CBA378  (warm tan)
@@ -14,11 +46,11 @@ import ConcernsAccordion from '@/components/ConcernsAccordion';
 // --color-text-muted: #B8B8AC  (sage grey)
 
 export const metadata = {
-  title: 'Online Counselling in India & Dehradun | SoulCare',
+  title: 'Online Counselling in India & Dehradun | Soulcare',
   description:
     'Online counselling in India and in-person counselling in Dehradun with Monika Arora, counselling psychologist. Support available in Hindi and English.',
   openGraph: {
-    title: 'Online Counselling in India & Dehradun | SoulCare',
+    title: 'Online Counselling in India & Dehradun | Soulcare',
     description:
       'Online counselling in India and in-person counselling in Dehradun with Monika Arora, counselling psychologist.',
     type: 'website',
@@ -68,15 +100,12 @@ export default function Home() {
 
         <div className="relative z-20 max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
 
-          {/* Text */}
-          <div className="max-w-2xl mx-auto text-center flex flex-col items-center mt-8 sm:mt-12">
+          {/* Text with Blue Glass Effect */}
+          <div className="max-w-3xl mx-auto text-center flex flex-col items-center mt-8 sm:mt-12 p-8 md:p-10 rounded-2xl bg-navy/20 backdrop-blur-md border border-white/20 shadow-xl">
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl leading-[1.15] mb-6 max-w-3xl mx-auto text-navy">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl leading-[1.15] mb-6 max-w-3xl mx-auto text-[#F7F4EE]">
               A safe place to heal, grow, and feel understood.
             </h1>
-            <p className="text-[18px] md:text-[19.5px] font-medium leading-relaxed mb-6 max-w-md mx-auto text-[#F7F4EE]">
-              {siteInfo.tagline}
-            </p>
             <p className="text-[11px] sm:text-[12.5px] font-semibold tracking-[0.15em] uppercase mb-6 text-[#F7F4EE] max-w-xl sm:max-w-none">
               Online in India &amp; Abroad &middot; In-person in Dehradun &middot; <span className="whitespace-nowrap">Hindi &amp; English</span>
             </p>
@@ -87,13 +116,6 @@ export default function Home() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-[0.15em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 bg-accent"
               >
                 Book a Session <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/about"
-                id="hero-about-link"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:bg-white hover:text-navy hover:-translate-y-0.5 border-2 text-white border-white"
-              >
-                Learn About Counselling <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -193,151 +215,8 @@ export default function Home() {
       </section>
 
 
-      {/* ─── EXISTING SECTION: SUPPORT FOR EVERY STAGE ──────────────── */}
-      <section className="relative w-full bg-[#FAF9F6] flex flex-col justify-start pt-8 md:pt-12 pb-16 px-6 md:px-8 overflow-hidden">
-        <div className="w-full mx-auto flex flex-col items-center z-10">
-          
-          <div className="text-center mb-8 max-w-2xl flex flex-col items-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading text-[#3E4A3D] leading-[1.15] tracking-tight mb-2">
-              Who I Work With
-            </h2>
-            <p className="text-base md:text-lg lg:text-xl font-medium leading-relaxed text-[#545D52]">
-              Counselling for teenagers, adults, couples, and families.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full max-w-7xl mx-auto">
-            
-            {/* Card 1: Adolescence */}
-            <Link 
-              href="/sessions/adolescence" 
-              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
-            >
-              <div className="absolute inset-0 z-0">
-                <Image 
-                  src="/images/services_adolescence.webp" 
-                  alt="Adolescence Therapy" 
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
-              </div>
-              
-              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
-                  Adolescents
-                </span>
-                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
-                  Adolescence
-                </h3>
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
-                  Supporting teenagers through emotional turbulence, self-identity discovery, academic stress, and relationships.
-                </p>
-                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
-                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Card 2: Individual Adults */}
-            <Link 
-              href="/sessions/individual-adults" 
-              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
-            >
-              <div className="absolute inset-0 z-0">
-                <Image 
-                  src="/images/services_individual_adults.webp" 
-                  alt="Individual Adults Therapy" 
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
-              </div>
-              
-              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
-                  Individuals
-                </span>
-                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
-                  Individual Adults
-                </h3>
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
-                  One-on-one virtual counseling to address anxiety, depression, trauma recovery, and life transitions.
-                </p>
-                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
-                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Card 3: Couple Therapy */}
-            <Link 
-              href="/sessions/couple-therapy" 
-              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
-            >
-              <div className="absolute inset-0 z-0">
-                <Image 
-                  src="/images/services_couple_therapy.webp" 
-                  alt="Couple Therapy" 
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
-              </div>
-              
-              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
-                  Couples
-                </span>
-                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
-                  Couple Therapy
-                </h3>
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
-                  Rebuilding trust, improving connection, and navigating communication issues or infidelity.
-                </p>
-                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
-                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Card 4: Family Therapy */}
-            <Link 
-              href="/sessions/family-therapy" 
-              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
-            >
-              <div className="absolute inset-0 z-0">
-                <Image 
-                  src="/images/services_family_therapy.webp" 
-                  alt="Family Therapy" 
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
-              </div>
-              
-              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
-                  Families
-                </span>
-                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
-                  Family Therapy
-                </h3>
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
-                  Supporting blended families, resolving generational conflict, and navigating grief or parenting challenges.
-                </p>
-                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
-                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                </div>
-              </div>
-            </Link>
-
-          </div>
-        </div>
-      </section>
-
       {/* ─── NEW SECTION: WHAT'S BEEN ON YOUR MIND ─────────────────────────────── */}
-      <section className="py-12 md:py-16 px-6 bg-white">
+      <section className="py-12 md:py-16 px-6 bg-[#FAF9F6]">
         <div className="max-w-4xl mx-auto text-center mb-8 md:mb-10">
           <span className="block text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase mb-3 text-accent">
             WHAT I CAN HELP WITH
@@ -352,7 +231,7 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-16">
-            
+
             {/* Left: Image (50% width on desktop) */}
             <div className="w-full lg:w-1/2 shrink-0 min-h-[300px] lg:min-h-auto relative rounded-sm overflow-hidden shadow-sm">
               <Image
@@ -390,7 +269,7 @@ export default function Home() {
       <section className="relative py-12 md:py-16 overflow-hidden bg-secondary">
         <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            
+
             {/* Left: Text Content */}
             <div className="text-left max-w-lg mx-auto lg:mx-0">
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl leading-[1.15] mb-5 text-navy">
@@ -400,7 +279,7 @@ export default function Home() {
                 Everyone comes to counselling with different experiences, concerns, and needs. How we work together will depend on what feels helpful for you.
               </p>
               <div className="w-12 h-px mb-6 bg-primary" />
-              
+
               {/* Three Points */}
               <div className="space-y-5 mb-8">
                 <div>
@@ -449,10 +328,156 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            
+
           </div>
         </div>
       </section>
+
+      {/* ─── EXISTING SECTION: SUPPORT FOR EVERY STAGE ──────────────── */}
+      <section className="relative w-full bg-[#FAF9F6] flex flex-col justify-start pt-8 md:pt-12 pb-16 px-6 md:px-8 overflow-hidden">
+        <div className="w-full mx-auto flex flex-col items-center z-10">
+
+          <div className="text-center mb-8 max-w-2xl flex flex-col items-center">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading text-[#3E4A3D] leading-[1.15] tracking-tight mb-2">
+              Who I Work With
+            </h2>
+            <p className="text-base md:text-lg lg:text-xl font-medium leading-relaxed text-[#545D52]">
+              Counselling for teenagers, adults, couples, and families.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full max-w-7xl mx-auto">
+
+            {/* Card 1: Adolescence */}
+            <Link
+              href="/sessions/adolescence"
+              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
+            >
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/services_adolescence.webp"
+                  alt="Adolescence Therapy"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
+              </div>
+
+              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
+                  Adolescents
+                </span>
+                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
+                  Adolescence
+                </h3>
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  Supporting teenagers through emotional turbulence, self-identity discovery, academic stress, and relationships.
+                </p>
+                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
+                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 2: Individual Adults */}
+            <Link
+              href="/sessions/individual-adults"
+              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
+            >
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/services_individual_adults.webp"
+                  alt="Individual Adults Therapy"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
+              </div>
+
+              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
+                  Individuals
+                </span>
+                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
+                  Individual Adults
+                </h3>
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  One-on-one virtual counseling to address anxiety, depression, trauma recovery, and life transitions.
+                </p>
+                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
+                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 3: Couple Therapy */}
+            <Link
+              href="/sessions/couple-therapy"
+              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
+            >
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/services_couple_therapy.webp"
+                  alt="Couple Therapy"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
+              </div>
+
+              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
+                  Couples
+                </span>
+                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
+                  Couple Therapy
+                </h3>
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  Rebuilding trust, improving connection, and navigating communication issues or infidelity.
+                </p>
+                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
+                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 4: Family Therapy */}
+            <Link
+              href="/sessions/family-therapy"
+              className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer block"
+            >
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/services_family_therapy.webp"
+                  alt="Family Therapy"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent transition-opacity duration-300" />
+              </div>
+
+              <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8">
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] mb-1">
+                  Families
+                </span>
+                <h3 className="text-white font-heading text-xl sm:text-2xl font-semibold mb-2">
+                  Family Therapy
+                </h3>
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  Supporting blended families, resolving generational conflict, and navigating grief or parenting challenges.
+                </p>
+                <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
+                  Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                </div>
+              </div>
+            </Link>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── THERAPEUTIC APPROACHES (FAQ) ───────────────────────────────────────── */}
+      <FAQSection faqs={homeFaqs} title="Therapeutic Approaches" bgClass="bg-white" />
 
       {/* ─── 6. CLOSING CTA ──────────────────────────────────────────────────────
            Navy full-bleed section. Headline + CTA. No dead ends.             */}
@@ -488,7 +513,7 @@ export default function Home() {
               Words Shared With Me
             </h2>
           </div>
-          
+
           <TestimonialSlider testimonials={testimonials} />
         </div>
       </section>

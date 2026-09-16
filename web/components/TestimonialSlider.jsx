@@ -69,14 +69,15 @@ export default function TestimonialSlider({ testimonials }) {
           {Array.from({ length: totalPages }).map((_, pageIdx) => (
             <div
               key={pageIdx}
-              className="w-full flex-shrink-0 flex gap-4 px-2 sm:px-4"
+              className="w-full flex-shrink-0 grid gap-4 px-2 sm:px-4"
+              style={{ gridTemplateColumns: `repeat(${visibleCards}, minmax(0, 1fr))` }}
             >
               {testimonials
                 .slice(pageIdx * visibleCards, pageIdx * visibleCards + visibleCards)
                 .map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="flex-1 min-w-0"
+                    className="min-w-0"
                   >
                     <TestimonialCard testimonial={testimonial} />
                   </div>

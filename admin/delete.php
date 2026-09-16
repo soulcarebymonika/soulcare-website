@@ -2,6 +2,7 @@
 // admin/delete.php
 require_once "auth.php";
 require_once "config.php";
+require_once "webhook.php";
 
 if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     $id = trim($_GET["id"]);
@@ -29,6 +30,9 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         $param_id = $id;
         
         if($stmt->execute()){
+            // Trigger Vercel rebuild
+            trigger_vercel_deploy();
+            
             header("location: index.php");
             exit();
         } else{

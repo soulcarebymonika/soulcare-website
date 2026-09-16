@@ -1,6 +1,30 @@
 import Hero from "@/components/Hero";
 import TestimonialCard from "@/components/TestimonialCard";
 import { testimonials } from "@/lib/content";
+import FAQSection from "@/components/FAQSection";
+
+const testimonialFaqs = [
+  {
+    question: "Are these testimonials from real clients?",
+    answer: "Yes, all the testimonials featured here are from real clients who have generously chosen to share their experiences."
+  },
+  {
+    question: "How do you ensure client confidentiality when sharing feedback?",
+    answer: "Client privacy is paramount. All identifying information is strictly removed or modified, and testimonials are only shared with explicit, voluntary permission."
+  },
+  {
+    question: "Am I expected to leave a testimonial after my sessions?",
+    answer: "No, there is absolutely no expectation or pressure to leave a testimonial. Your therapy journey is entirely yours and remains private."
+  },
+  {
+    question: "Are the results mentioned in testimonials guaranteed?",
+    answer: "Therapy is a deeply personal and collaborative process. While many clients experience significant positive changes, outcomes naturally vary depending on individual circumstances."
+  },
+  {
+    question: "What if I am unhappy with my own counselling experience?",
+    answer: "I encourage open communication. If you feel that our sessions are not meeting your needs, we can openly discuss this and adjust our approach to better support you."
+  }
+];
 
 export const metadata = {
   title: 'Client Testimonials & Feedback | Soulcare',
@@ -24,6 +48,9 @@ export default function Testimonials() {
           </div>
         </div>
       </section>
+      
+      {/* FAQ SECTION */}
+      <FAQSection faqs={testimonialFaqs} title="Frequently Asked Questions About Client Experiences" />
     </div>
   );
 }

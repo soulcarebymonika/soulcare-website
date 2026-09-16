@@ -1,6 +1,30 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import Image from "next/image";
+import FAQSection from "@/components/FAQSection";
+
+const sessionsFaqs = [
+  {
+    question: "What types of counselling do you offer?",
+    answer: "I offer a wide range of services including Individual Counselling, Couple Therapy, Family Therapy, and specialized support for children, students, and complex challenges like trauma."
+  },
+  {
+    question: "How do I know which type of session is right for me?",
+    answer: "If you are unsure where to start, we can discuss your specific needs and concerns during a complimentary initial consultation call to determine the best approach."
+  },
+  {
+    question: "Do you offer sessions for children and teenagers?",
+    answer: "Yes, I provide guidance and counselling for children, teens, and students to help them navigate academic pressures, emotional struggles, and social challenges."
+  },
+  {
+    question: "Is it possible to focus on personal growth rather than a specific problem?",
+    answer: "Absolutely. Therapy is not just for crises. Many clients seek support to develop self-awareness, build confidence, improve emotional intelligence, and create a more fulfilling life."
+  },
+  {
+    question: "Do you handle specific conditions like PTSD or addictions?",
+    answer: "Yes, I offer specialized support for complex challenges, including trauma and addiction, focusing on helping you heal and build lasting resilience."
+  }
+];
 
 export const metadata = {
   title: 'Counseling Services | Individual, Couple & Family Therapy',
@@ -56,7 +80,7 @@ const sessionCategories = [
       "Life Coaching", "Guided Meditation",
       "Personality Development", "Self-Esteem & Confidence"
     ],
-    link: "/sessions"
+    link: "/sessions/personal-growth"
   },
   {
     id: "05",
@@ -67,7 +91,7 @@ const sessionCategories = [
     items: [
       "EMDR & Trauma Support", "Addiction Support", "Group Therapy"
     ],
-    link: "/sessions"
+    link: "/sessions/specialized-support"
   }
 ];
 
@@ -199,6 +223,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* FAQ SECTION */}
+      <FAQSection faqs={sessionsFaqs} title="Frequently Asked Questions About Sessions" />
 
     </div>
   );

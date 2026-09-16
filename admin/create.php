@@ -2,6 +2,7 @@
 // admin/create.php
 require_once "auth.php";
 require_once "config.php";
+require_once "webhook.php";
 
 $title = $slug = $meta_title = $meta_description = $category = $author = $image_alt = $excerpt = $content = "";
 $error = "";
@@ -55,6 +56,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 ":content" => $content,
                 ":image_path" => $image_path
             ]);
+            
+            // Trigger Vercel rebuild
+            trigger_vercel_deploy();
+            
             header("location: index.php");
             exit();
         }
