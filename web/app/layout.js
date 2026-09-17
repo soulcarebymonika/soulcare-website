@@ -31,10 +31,10 @@ export default function RootLayout({ children }) {
       {
         "@type": ["MedicalBusiness", "LocalBusiness", "ProfessionalService"],
         "name": siteInfo.name,
-        "image": "https://soulcare.example.com/images/monika-portrait.png",
-        "logo": "https://soulcare.example.com/images/logo_soulcare.jpeg",
-        "@id": "https://soulcare.example.com/#organization",
-        "url": "https://soulcare.example.com/",
+        "image": "https://soulcarebymonika.com/images/monika-portrait.png",
+        "logo": "https://soulcarebymonika.com/images/logo_soulcare.jpeg",
+        "@id": "https://soulcarebymonika.com/#organization",
+        "url": "https://soulcarebymonika.com/",
         "email": "info@soulcarebymonika.com",
         "address": {
           "@type": "PostalAddress",
@@ -46,16 +46,16 @@ export default function RootLayout({ children }) {
       },
       {
         "@type": "Person",
-        "@id": "https://soulcare.example.com/#monika",
+        "@id": "https://soulcarebymonika.com/#monika",
         "name": "Monika Arora",
         "jobTitle": "Counselling Psychologist",
-        "url": "https://soulcare.example.com/about",
-        "image": "https://soulcare.example.com/images/monika-portrait.png",
+        "url": "https://soulcarebymonika.com/about",
+        "image": "https://soulcarebymonika.com/images/monika-portrait.png",
         "sameAs": [
           siteInfo.instagram
         ],
         "worksFor": {
-          "@id": "https://soulcare.example.com/#organization"
+          "@id": "https://soulcarebymonika.com/#organization"
         }
       }
     ]
