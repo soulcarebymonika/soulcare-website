@@ -1,9 +1,9 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://admin.soulcarebymonika.com";
 
 export async function getPosts() {
   try {
-    const res = await fetch(`${API_BASE_URL}/admin/api.php`, {
-      next: { revalidate: 0 }, // no cache for dev
+    const res = await fetch(`${API_BASE_URL}/api.php`, {
+      next: { revalidate: 60 }, // revalidate every 60s in production
     });
     if (!res.ok) throw new Error("Failed to fetch posts");
     const json = await res.json();
@@ -16,8 +16,8 @@ export async function getPosts() {
 
 export async function getPost(slug) {
   try {
-    const res = await fetch(`${API_BASE_URL}/admin/api.php?slug=${slug}`, {
-      next: { revalidate: 0 },
+    const res = await fetch(`${API_BASE_URL}/api.php?slug=${slug}`, {
+      next: { revalidate: 60 },
     });
     if (!res.ok) throw new Error("Failed to fetch post");
     const json = await res.json();
