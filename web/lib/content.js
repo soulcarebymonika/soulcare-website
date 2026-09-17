@@ -34,75 +34,75 @@ export const categoryServices = {
       id: "identity",
       title: "When you’re still figuring out who you are",
       description: "Comparing yourself to others, questioning your confidence, or feeling unsure of who you are becoming.",
-      image: "/images/sessions/identity.jpg"
+      image: "/images/services/identity.jpg"
     },
     {
       id: "social-pressure",
       title: "When friendships feel complicated",
       description: "Feeling left out, dealing with friendship changes, or finding it hard to feel understood and connected.",
-      image: "/images/sessions/friendship.jpg"
+      image: "/images/services/friendship.jpg"
     },
     {
       id: "academic-stress",
       title: "When school feels like everything",
       description: "Exam stress, academic pressure, procrastination, or feeling like you have to get everything right.",
-      image: "/images/sessions/school.jpg"
+      image: "/images/services/school.jpg"
     },
     {
       id: "emotional-turbulence",
       title: "When your emotions feel out of control",
       description: "Feeling anxious, angry, overwhelmed, or finding it hard to manage emotions when everything feels too much.",
-      image: "/images/sessions/emotions.jpg"
+      image: "/images/services/emotions.jpg"
     },
     {
       id: "family-dynamics",
       title: "When things at home feel difficult",
       description: "Arguments, feeling misunderstood, wanting more independence, or finding it hard to talk with your parents or family.",
-      image: "/images/sessions/family.jpg"
+      image: "/images/services/family.jpg"
     },
     {
       id: "loneliness-isolation",
       title: "When you feel alone, even with people around",
       description: "Feeling lonely, left out, disconnected, or like no one really understands what you’re going through.",
-      image: "/images/sessions/alone.jpg"
+      image: "/images/services/alone.jpg"
     }
   ],
   "individual-adults": [
-    { id: "anxiety", title: "Anxiety & Stress", description: "Feeling constantly on edge, struggling with panic, burnout, or finding it hard to quieten your mind.", image: "/images/sessions/adolescence_emotions.png" },
-    { id: "depression", title: "Low Mood & Depression", description: "Feeling stuck, exhausted, losing interest in things you used to enjoy, or carrying a heavy sense of emptiness.", image: "/images/sessions/adolescence_alone.png" },
-    { id: "trauma", title: "Processing Trauma", description: "Working through difficult past experiences, painful memories, or feelings that still affect your everyday life.", image: "/images/sessions/adolescence_alone.png" },
-    { id: "career", title: "Life & Career Changes", description: "Navigating big transitions, feeling lost in your career, experiencing burnout, or trying to find your direction.", image: "/images/sessions/adolescence_school.png" },
-    { id: "self-growth", title: "Self-Growth & Boundaries", description: "Learning to be kinder to yourself, setting healthy boundaries, and understanding who you are outside of expectations.", image: "/images/sessions/adolescence_identity.png" }
+    { id: "anxiety", title: "Anxiety & Stress", description: "Feeling constantly on edge, struggling with panic, burnout, or finding it hard to quieten your mind.", image: "/images/services/adolescence_emotions.png" },
+    { id: "depression", title: "Low Mood & Depression", description: "Feeling stuck, exhausted, losing interest in things you used to enjoy, or carrying a heavy sense of emptiness.", image: "/images/services/adolescence_alone.png" },
+    { id: "trauma", title: "Processing Trauma", description: "Working through difficult past experiences, painful memories, or feelings that still affect your everyday life.", image: "/images/services/adolescence_alone.png" },
+    { id: "career", title: "Life & Career Changes", description: "Navigating big transitions, feeling lost in your career, experiencing burnout, or trying to find your direction.", image: "/images/services/adolescence_school.png" },
+    { id: "self-growth", title: "Self-Growth & Boundaries", description: "Learning to be kinder to yourself, setting healthy boundaries, and understanding who you are outside of expectations.", image: "/images/services/adolescence_identity.png" }
   ],
   "couple-therapy": [
-    { id: "communication", title: "Communication Patterns", description: "Breaking loop arguments, learning to share what you really mean, and finding ways to listen without getting defensive.", image: "/images/sessions/adolescence_friendship.png" },
-    { id: "intimacy", title: "Closeness & Connection", description: "Rebuilding intimacy, feeling emotionally distant from each other, or navigating differences in what you want.", image: "/images/sessions/adolescence_emotions.png" },
-    { id: "infidelity", title: "Rebuilding Trust", description: "A safe, structured space to talk through betrayal, process infidelity, and decide how to move forward together.", image: "/images/sessions/adolescence_identity.png" },
-    { id: "pre-marital", title: "Preparing for Marriage", description: "Laying a strong, honest foundation before committing, and discussing values, family, and shared expectations.", image: "/images/sessions/adolescence_alone.png" },
-    { id: "couple-transitions", title: "Navigating Transitions", description: "Supporting each other through big milestones, like moving in together, career changes, or becoming parents.", image: "/images/sessions/adolescence_emotions.png" }
+    { id: "communication", title: "Communication Patterns", description: "Breaking loop arguments, learning to share what you really mean, and finding ways to listen without getting defensive.", image: "/images/services/adolescence_friendship.png" },
+    { id: "intimacy", title: "Closeness & Connection", description: "Rebuilding intimacy, feeling emotionally distant from each other, or navigating differences in what you want.", image: "/images/services/adolescence_emotions.png" },
+    { id: "infidelity", title: "Rebuilding Trust", description: "A safe, structured space to talk through betrayal, process infidelity, and decide how to move forward together.", image: "/images/services/adolescence_identity.png" },
+    { id: "pre-marital", title: "Preparing for Marriage", description: "Laying a strong, honest foundation before committing, and discussing values, family, and shared expectations.", image: "/images/services/adolescence_alone.png" },
+    { id: "couple-transitions", title: "Navigating Transitions", description: "Supporting each other through big milestones, like moving in together, career changes, or becoming parents.", image: "/images/services/adolescence_emotions.png" }
   ],
   "family-therapy": [
-    { id: "parenting", title: "Parenting Support", description: "Navigating the challenges of parenting, understanding your child's emotions, and finding calmer ways to respond.", image: "/images/sessions/adolescence_family.png" },
-    { id: "conflict", title: "Generational Gaps", description: "Bridging differences in perspective between parents and teenagers, and finding common ground where everyone feels respected.", image: "/images/sessions/adolescence_family.png" },
-    { id: "blended", title: "Blended Families", description: "Working through the unique dynamics of step-families, co-parenting boundaries, and adjusting to new structures.", image: "/images/sessions/adolescence_friendship.png" },
-    { id: "grief", title: "Grief & Shared Loss", description: "Supporting each other through the painful loss of a family member, and finding space to grieve in your own ways.", image: "/images/sessions/adolescence_alone.png" },
-    { id: "family-resilience", title: "Home Connection", description: "Improving how you talk to each other daily, reducing constant friction, and building a supportive home environment.", image: "/images/sessions/adolescence_family.png" }
+    { id: "parenting", title: "Parenting Support", description: "Navigating the challenges of parenting, understanding your child's emotions, and finding calmer ways to respond.", image: "/images/services/adolescence_family.png" },
+    { id: "conflict", title: "Generational Gaps", description: "Bridging differences in perspective between parents and teenagers, and finding common ground where everyone feels respected.", image: "/images/services/adolescence_family.png" },
+    { id: "blended", title: "Blended Families", description: "Working through the unique dynamics of step-families, co-parenting boundaries, and adjusting to new structures.", image: "/images/services/adolescence_friendship.png" },
+    { id: "grief", title: "Grief & Shared Loss", description: "Supporting each other through the painful loss of a family member, and finding space to grieve in your own ways.", image: "/images/services/adolescence_alone.png" },
+    { id: "family-resilience", title: "Home Connection", description: "Improving how you talk to each other daily, reducing constant friction, and building a supportive home environment.", image: "/images/services/adolescence_family.png" }
   ],
   "personal-growth": [
-    { id: "psychosynthesis", title: "Psychosynthesis Life Coaching", description: "Integrating the intellectual, emotional, and physical aspects of oneself for a more harmonious life.", image: "/images/sessions/adolescence_emotions.png" },
-    { id: "life-coaching", title: "Life Coaching", description: "Goal-oriented support to help you gain clarity, overcome obstacles, and achieve your personal or professional ambitions.", image: "/images/sessions/adolescence_identity.png" },
-    { id: "personality-development", title: "Personality Development", description: "Exploring and refining your personal traits to build stronger interpersonal skills and self-awareness.", image: "/images/sessions/adolescence_school.png" },
-    { id: "emotional-intelligence", title: "Emotional Intelligence", description: "Learning to understand, use, and manage your own emotions in positive ways to relieve stress and empathize with others.", image: "/images/sessions/adolescence_friendship.png" },
-    { id: "guided-meditation", title: "Guided Meditation", description: "Techniques to help you center yourself, quiet the mind, and foster a deeper sense of inner peace.", image: "/images/sessions/adolescence_alone.png" },
-    { id: "self-esteem", title: "Self-Esteem & Confidence", description: "Overcoming self-doubt and building a strong, resilient sense of self-worth.", image: "/images/sessions/adolescence_emotions.png" }
+    { id: "psychosynthesis", title: "Psychosynthesis Life Coaching", description: "Integrating the intellectual, emotional, and physical aspects of oneself for a more harmonious life.", image: "/images/services/adolescence_emotions.png" },
+    { id: "life-coaching", title: "Life Coaching", description: "Goal-oriented support to help you gain clarity, overcome obstacles, and achieve your personal or professional ambitions.", image: "/images/services/adolescence_identity.png" },
+    { id: "personality-development", title: "Personality Development", description: "Exploring and refining your personal traits to build stronger interpersonal skills and self-awareness.", image: "/images/services/adolescence_school.png" },
+    { id: "emotional-intelligence", title: "Emotional Intelligence", description: "Learning to understand, use, and manage your own emotions in positive ways to relieve stress and empathize with others.", image: "/images/services/adolescence_friendship.png" },
+    { id: "guided-meditation", title: "Guided Meditation", description: "Techniques to help you center yourself, quiet the mind, and foster a deeper sense of inner peace.", image: "/images/services/adolescence_alone.png" },
+    { id: "self-esteem", title: "Self-Esteem & Confidence", description: "Overcoming self-doubt and building a strong, resilient sense of self-worth.", image: "/images/services/adolescence_emotions.png" }
   ],
   "specialized-support": [
-    { id: "emdr-trauma", title: "EMDR & Trauma Support", description: "Evidence-based therapeutic approaches designed to help you process and heal from distressing or traumatic past experiences.", image: "/images/sessions/adolescence_alone.png" },
-    { id: "addiction-support", title: "Addiction Support", description: "A non-judgmental space to explore dependencies, understand triggers, and develop healthier coping mechanisms.", image: "/images/sessions/adolescence_family.png" },
-    { id: "group-therapy", title: "Group Therapy", description: "Connecting with others facing similar challenges in a guided, supportive environment to foster shared healing.", image: "/images/sessions/adolescence_friendship.png" },
-    { id: "grief-counselling", title: "Grief & Bereavement", description: "Navigating the complex, often overwhelming emotions of loss and finding a meaningful path forward.", image: "/images/sessions/adolescence_emotions.png" },
-    { id: "chronic-illness", title: "Chronic Illness Support", description: "Emotional support and coping strategies for individuals managing chronic pain or long-term health conditions.", image: "/images/sessions/adolescence_alone.png" },
-    { id: "eating-disorder", title: "Body Image & Recovery", description: "Compassionate care to help build a healthier relationship with food, body image, and self-worth.", image: "/images/sessions/adolescence_identity.png" }
+    { id: "emdr-trauma", title: "EMDR & Trauma Support", description: "Evidence-based therapeutic approaches designed to help you process and heal from distressing or traumatic past experiences.", image: "/images/services/adolescence_alone.png" },
+    { id: "addiction-support", title: "Addiction Support", description: "A non-judgmental space to explore dependencies, understand triggers, and develop healthier coping mechanisms.", image: "/images/services/adolescence_family.png" },
+    { id: "group-therapy", title: "Group Therapy", description: "Connecting with others facing similar challenges in a guided, supportive environment to foster shared healing.", image: "/images/services/adolescence_friendship.png" },
+    { id: "grief-counselling", title: "Grief & Bereavement", description: "Navigating the complex, often overwhelming emotions of loss and finding a meaningful path forward.", image: "/images/services/adolescence_emotions.png" },
+    { id: "chronic-illness", title: "Chronic Illness Support", description: "Emotional support and coping strategies for individuals managing chronic pain or long-term health conditions.", image: "/images/services/adolescence_alone.png" },
+    { id: "eating-disorder", title: "Body Image & Recovery", description: "Compassionate care to help build a healthier relationship with food, body image, and self-worth.", image: "/images/services/adolescence_identity.png" }
   ]
 };
 
