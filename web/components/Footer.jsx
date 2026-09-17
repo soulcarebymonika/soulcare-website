@@ -172,11 +172,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <div className="h-px w-full bg-white/15" />
         <div className="flex flex-col md:flex-row justify-between items-center py-5 gap-4">
-          <p
-            className="text-xs text-secondary/50"
-          >
-            © {new Date().getFullYear()} {siteInfo.name}. All rights reserved.
-          </p>
+          <div className="flex flex-col gap-0.5">
+            <p className="text-xs text-secondary/50">
+              © {new Date().getFullYear()} {siteInfo.name}. All rights reserved.
+            </p>
+            <a
+              href="https://www.divyanshchandra.online/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] text-secondary/30 hover:text-secondary/50 transition-colors duration-200"
+            >
+              Website crafted by Divyansh Chandra
+            </a>
+          </div>
           <div className="flex gap-6">
             {legalLinks.map((link) => (
               <Link

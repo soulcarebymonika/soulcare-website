@@ -5,6 +5,8 @@ header("Content-Type: application/json; charset=UTF-8");
 
 require_once "config.php";
 
+$base_url = "https://admin.soulcarebymonika.com";
+
 if (isset($_GET['slug'])) {
     $slug = $_GET['slug'];
     $sql = "SELECT * FROM blog_posts WHERE slug = :slug";
@@ -13,9 +15,8 @@ if (isset($_GET['slug'])) {
     $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($post) {
-        // Prepend the localhost URL to the image path if it's not empty
         if ($post['image_path']) {
-            $post['image_path'] = 'http://localhost:8000/admin/' . $post['image_path'];
+            $post['image_path'] = $base_url . '/' . ltrim($post['image_path'], '/');
         }
         echo json_encode(["status" => "success", "data" => $post]);
     } else {
@@ -29,7 +30,7 @@ if (isset($_GET['slug'])) {
 
     foreach ($posts as &$post) {
         if ($post['image_path']) {
-            $post['image_path'] = 'http://localhost:8000/admin/' . $post['image_path'];
+            $post['image_path'] = $base_url . '/' . ltrim($post['image_path'], '/');
         }
     }
 

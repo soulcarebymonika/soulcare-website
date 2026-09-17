@@ -103,7 +103,7 @@ export default function Home() {
           {/* Text with Glass Effect — centered card */}
           <div className="max-w-2xl w-full flex flex-col items-center text-center p-8 md:p-10 rounded-2xl bg-[#3a4a5a]/20 backdrop-blur-md border border-white/15 shadow-2xl">
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl leading-[1.15] mb-5 text-[#F7F4EE]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl leading-[1.15] mb-5 text-[#1a3448]">
               A safe place to heal, grow, and feel understood.
             </h1>
 

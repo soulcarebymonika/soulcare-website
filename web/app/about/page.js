@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
+import DepthCarousel from "@/components/DepthCarousel";
 
 const aboutFaqs = [
   {
@@ -54,15 +55,33 @@ export default function About() {
             </p>
           </div>
           
-          {/* Right Column (Approx 55%) */}
+          {/* Right Column (Approx 55%) — DepthCarousel */}
           <div className="w-full lg:w-[55%] mt-6 lg:mt-0">
             <div className="w-full aspect-[4/3] md:aspect-[5/4] relative overflow-hidden rounded-2xl">
-              <Image 
-                src="/images/therapy_room_1.jpg" 
-                alt="Monika Arora, Counselling Psychologist and Guidance Professional" 
-                fill
-                className="object-cover" 
-                priority
+              <DepthCarousel
+                items={[
+                  { image: '/images/carousel_counselling_session.jpg', alt: 'Counselling session in a warm therapy room' },
+                  { image: '/images/carousel_therapy_room.jpg', alt: 'Inviting counselling space with plants and natural light' },
+                  { image: '/images/carousel_peaceful_woman.jpg', alt: 'Woman reflecting peacefully by a window' },
+                  { image: '/images/carousel_journal.jpg', alt: 'Mindfulness journal and herbal tea on a wooden desk' },
+                  { image: '/images/carousel_nature_walk.jpg', alt: 'Person walking through a sunlit forest path' },
+                ]}
+                cardWidth={420}
+                cardHeight={520}
+                radius={16}
+                depth={180}
+                spread={70}
+                tilt={18}
+                tiltDirection="right"
+                perspective={1200}
+                visibleCards={3}
+                falloff={0}
+                blur={0}
+                autoplay
+                autoplayDelay={2800}
+                loop
+                showIndicators={false}
+                showControls={false}
               />
             </div>
           </div>
