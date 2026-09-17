@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
             Get it from: analytics.google.com → Admin → Data Streams → your stream
         ────────────────────────────────────────────────────────────────────── */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-WZ81RP1SXM"
           strategy="lazyOnload"
         />
         <Script id="ga4-init" strategy="lazyOnload">
@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-WZ81RP1SXM');
           `}
         </Script>
 
