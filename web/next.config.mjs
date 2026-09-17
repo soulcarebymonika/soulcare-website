@@ -5,6 +5,15 @@ const nextConfig = {
     appIsrStatus: false,
     buildActivity: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'admin.soulcarebymonika.com',
+        pathname: '/uploads/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
