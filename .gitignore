@@ -15,13 +15,10 @@ user_flow
 # ─── Design assets & reference materials ───────────────
 _design_assets/
 
-# ─── Raw media files (too large / private) ─────────────
-*.mp4
-*.jpg
-*.jpeg
-*.jfif
-*.png
+# ✂️✂️✂️ Raw media files (private originals only) ✂️✂️✂️✂️✂️✂️✂️✂️✂️✂️✂️✂️✂️
+# Only exclude raw/private files, NOT web assets in public/
 *.pdf
+_design_assets/
 
 # ─── Web project sensitive files ───────────────────────
 web/.env
