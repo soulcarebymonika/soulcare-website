@@ -98,24 +98,37 @@ export default function Home() {
         {/* Subtle Dark Blue Overlay (15–20% opacity + 5% stronger) */}
         <div className="absolute inset-0 bg-navy/23 z-10 pointer-events-none" />
 
-        <div className="relative z-20 max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
+        <div className="relative z-20 max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 w-full flex justify-center">
 
-          {/* Text with Blue Glass Effect */}
-          <div className="max-w-3xl mx-auto text-center flex flex-col items-center mt-8 sm:mt-12 p-8 md:p-10 rounded-2xl bg-navy/20 backdrop-blur-md border border-white/20 shadow-xl">
+          {/* Text with Glass Effect — centered card */}
+          <div className="max-w-2xl w-full flex flex-col items-center text-center p-8 md:p-10 rounded-2xl bg-[#3a4a5a]/20 backdrop-blur-md border border-white/15 shadow-2xl">
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl leading-[1.15] mb-6 max-w-3xl mx-auto text-[#F7F4EE]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl leading-[1.15] mb-5 text-[#F7F4EE]">
               A safe place to heal, grow, and feel understood.
             </h1>
-            <p className="text-[11px] sm:text-[12.5px] font-semibold tracking-[0.15em] uppercase mb-6 text-[#F7F4EE] max-w-xl sm:max-w-none">
+
+            <p className="text-sm sm:text-base leading-relaxed mb-5 text-[#E8E4DC] max-w-lg">
+              A warm, confidential space where you can talk openly, feel heard, and move at your own pace.
+            </p>
+
+            <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase mb-7 text-[#D4CFC7]">
               Online in India &amp; Abroad &middot; In-person in Dehradun &middot; <span className="whitespace-nowrap">Hindi &amp; English</span>
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-5">
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="/book-a-session"
                 id="hero-cta"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-[0.15em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 bg-accent"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 bg-accent"
               >
-                Book a Session <ArrowRight size={16} />
+                Book a Session <ArrowRight size={15} />
+              </Link>
+              <Link
+                href="/how-it-works"
+                id="hero-secondary-cta"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-white transition-all duration-300 hover:bg-white/15 hover:-translate-y-0.5 border border-white/70"
+              >
+                Learn About Counselling <ArrowRight size={15} />
               </Link>
             </div>
           </div>
