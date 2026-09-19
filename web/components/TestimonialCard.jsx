@@ -1,5 +1,6 @@
 export default function TestimonialCard({ testimonial }) {
-  const initials = testimonial.name.split(' — ')[0].replace(/\s/g, ''); // e.g. "A.S." -> "AS"
+  const nameStr = testimonial?.name || testimonial?.author || "Anonymous";
+  const initials = nameStr.split(' — ')[0].replace(/\s/g, '').substring(0, 3) || "A";
 
   return (
     <div
@@ -10,12 +11,12 @@ export default function TestimonialCard({ testimonial }) {
         className="font-heading text-5xl leading-none mb-0 block text-primary"
         aria-hidden="true"
       >
-        "
+        &ldquo;
       </span>
       <p
         className="font-heading text-[18px] md:text-[20px] leading-relaxed flex-grow mb-4 text-text"
       >
-        {testimonial.quote.replace('[Placeholder] ', '')}
+        {(testimonial?.quote || testimonial?.review || '').replace('[Placeholder] ', '')}
       </p>
       <div className="flex items-center gap-3">
         <div
@@ -25,7 +26,7 @@ export default function TestimonialCard({ testimonial }) {
         </div>
         <div>
           <p className="text-xs font-bold uppercase tracking-wider text-navy">
-            Shared anonymously — PLACEHOLDER
+            {nameStr}
           </p>
         </div>
       </div>
