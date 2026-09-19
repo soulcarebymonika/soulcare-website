@@ -26,6 +26,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $pdo->prepare("UPDATE reviews SET approved = 0 WHERE id = :id");
             $stmt->execute([':id' => $id]);
             $message = "Review unapproved and hidden from the website.";
+        } elseif ($action === 'edit') {
+            $name   = trim(strip_tags($_POST['name'] ?? ''));
+            $rating = intval($_POST['rating'] ?? 5);
+            $review = trim(strip_tags($_POST['review'] ?? ''));
+
+            if (!empty($name) && !empty($review) && $rating >= 1 && $rating <= 5) {
+                $stmt = $pdo->prepare("UPDATE reviews SET name = :name, rating = :rating, review = :review WHERE id = :id");
+                $stmt->execute([
+                    ':name'   => $name,
+                    ':rating' => $rating,
+                    ':review' => $review,
+                    ':id'     => $id
+                ]);
+                $message = "Review #$id updated successfully.";
+            } else {
+                $message = "Error: Name, rating (1-5), and review text are required.";
+            }
         } elseif ($action === 'reject') {
             $stmt = $pdo->prepare("DELETE FROM reviews WHERE id = :id");
             $stmt->execute([':id' => $id]);
@@ -96,6 +113,7 @@ function stars(int $n): string {
     .btn:hover { opacity: .85; }
     .btn-approve { background: #28a745; color: #fff; margin-right: 6px; }
     .btn-unapprove { background: #6c757d; color: #fff; margin-right: 6px; }
+    .btn-edit { background: #2E4C63; color: #fff; margin-right: 6px; }
     .btn-delete { background: #9C4719; color: #fff; }
     .empty { text-align: center; padding: 48px; color: #8A8880; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.04); font-size: 1rem; }
   </style>
@@ -176,10 +194,50 @@ function stars(int $n): string {
                   <button class="btn btn-unapprove" type="submit">Unapprove</button>
                 </form>
               <?php endif; ?>
-              <form class="action-form" method="POST" onsubmit="return confirm('Permanently delete this review?')">
+              <button class="btn btn-edit" type="button" onclick="toggleEdit(<?= $r['id'] ?>)">✏ Edit</button>
+              <form class="action-form" method="POST" onsubmit="return confirm('Permanently delete review #<?= $r['id'] ?>?')">
                 <input type="hidden" name="id" value="<?= $r['id'] ?>">
                 <input type="hidden" name="action" value="reject">
                 <button class="btn btn-delete" type="submit">✕ Delete</button>
+              </form>
+            </td>
+          </tr>
+
+          <!-- Inline Edit Form Row -->
+          <tr id="edit-row-<?= $r['id'] ?>" style="display: none; background: #faf7f2;">
+            <td colspan="6" style="padding: 20px; border-bottom: 2px solid #E2E0D8;">
+              <form method="POST" style="display: flex; flex-direction: column; gap: 14px; max-width: 650px;">
+                <input type="hidden" name="id" value="<?= $r['id'] ?>">
+                <input type="hidden" name="action" value="edit">
+                
+                <div style="font-weight: 700; font-size: 13px; color: #2E4C63; text-transform: uppercase; letter-spacing: 0.05em;">
+                  Editing Review #<?= $r['id'] ?>
+                </div>
+
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                  <div style="flex: 1; min-width: 200px;">
+                    <label style="display: block; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 6px; color: #2E4C63;">Name / Initials</label>
+                    <input type="text" name="name" value="<?= htmlspecialchars($r['name']) ?>" required style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+                  </div>
+                  <div style="width: 160px;">
+                    <label style="display: block; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 6px; color: #2E4C63;">Rating</label>
+                    <select name="rating" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; background: white;">
+                      <?php for ($i = 5; $i >= 1; $i--): ?>
+                        <option value="<?= $i ?>" <?= (int)$r['rating'] === $i ? 'selected' : '' ?>><?= $i ?> Stars (<?= stars($i) ?>)</option>
+                      <?php endfor; ?>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label style="display: block; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 6px; color: #2E4C63;">Review Content</label>
+                  <textarea name="review" rows="4" required style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; line-height: 1.5; font-family: inherit; resize: vertical;"><?= htmlspecialchars($r['review']) ?></textarea>
+                </div>
+
+                <div style="display: flex; gap: 10px; justify-content: flex-end; pt-2;">
+                  <button type="button" onclick="toggleEdit(<?= $r['id'] ?>)" class="btn" style="background: #8A8880; color: white;">Cancel</button>
+                  <button type="submit" class="btn" style="background: #28a745; color: white;">Save Changes</button>
+                </div>
               </form>
             </td>
           </tr>
@@ -188,5 +246,13 @@ function stars(int $n): string {
       </table>
     <?php endif; ?>
   </div>
+  <script>
+    function toggleEdit(id) {
+      var row = document.getElementById('edit-row-' + id);
+      if (row) {
+        row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+      }
+    }
+  </script>
 </body>
 </html>
