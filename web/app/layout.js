@@ -17,11 +17,13 @@ const fraunces = Fraunces({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://soulcarebymonika.com"),
   title: {
     template: `%s | ${siteInfo.name}`,
     default: siteInfo.name,
   },
   description: siteInfo.tagline,
+
 };
 
 export default function RootLayout({ children }) {

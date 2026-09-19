@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^services/(.*)$ /sessions/$1 [R=301,L]
+  RewriteRule ^services/?$ /sessions [R=301,L]
+</IfModule>
