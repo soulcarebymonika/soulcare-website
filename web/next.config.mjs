@@ -14,6 +14,20 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        // Prevent Google from indexing decorative background videos
+        source: '/videos/:file*.mp4',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex',
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       {

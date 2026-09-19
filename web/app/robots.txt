@@ -1,4 +1,5 @@
 User-Agent: *
 Allow: /
+Disallow: /videos/
 
 Sitemap: https://soulcarebymonika.com/sitemap.xml
