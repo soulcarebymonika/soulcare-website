@@ -88,10 +88,16 @@ const categoryFaqs = {
 
 export async function generateMetadata({ params }) {
   const { category } = await params;
-  const metaTitle = categoryHeaders[category]?.metaTitle || "Service Category";
+  const baseUrl = "https://soulcarebymonika.com";
+  const header = categoryHeaders[category];
+  const metaTitle = header?.metaTitle || "Service Category";
+  const metaDescription = header?.description || `Explore our specific services for ${metaTitle}.`;
   return {
     title: `${metaTitle} | Soulcare`,
-    description: `Explore our specific services for ${metaTitle}.`
+    description: metaDescription,
+    alternates: {
+      canonical: `${baseUrl}/sessions/${category}`,
+    },
   };
 }
 
@@ -112,8 +118,35 @@ export default async function CategoryPage({ params }) {
     );
   }
 
+  const baseUrl = "https://soulcarebymonika.com";
+  const metaTitle = headerData.metaTitle;
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${baseUrl}/sessions/${category}#webpage`,
+        "url": `${baseUrl}/sessions/${category}`,
+        "name": `${metaTitle} | Soulcare`,
+        "description": headerData.description,
+        "about": { "@type": "MedicalTherapy", "name": metaTitle },
+        "author": { "@id": `${baseUrl}/#monika` },
+        "publisher": { "@id": `${baseUrl}/#organization` }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Sessions", "item": `${baseUrl}/sessions` },
+          { "@type": "ListItem", "position": 3, "name": metaTitle, "item": `${baseUrl}/sessions/${category}` }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF9F6] pt-12 md:pt-16 pb-20 px-6 md:px-8 lg:px-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <div className="max-w-6xl mx-auto">
         <div className="mb-6 px-4 md:px-12">
           <Link href="/sessions" className="inline-flex items-center text-sm tracking-widest uppercase hover:opacity-70 transition-opacity text-[#545D52]">

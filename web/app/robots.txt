@@ -2,4 +2,24 @@ User-Agent: *
 Allow: /
 Disallow: /videos/
 
+# Allow major AI search crawlers explicitly
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: ClaudeBot
+Allow: /
+
+User-Agent: anthropic-ai
+Allow: /
+
+User-Agent: Gemini-Web
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
 Sitemap: https://soulcarebymonika.com/sitemap.xml
+

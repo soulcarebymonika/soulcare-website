@@ -132,32 +132,73 @@ export default async function BlogPost({ params }) {
   const baseUrl = "https://soulcarebymonika.com";
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": excerpt,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `${baseUrl}/blog/${post.slug}`,
-    },
-    "author": {
-      "@type": "Person",
-      "name": authorName,
-      "jobTitle": "Licensed Clinical Psychologist",
-      "url": `${baseUrl}/about`,
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Soulcare by Monika Arora",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${baseUrl}/images/logo_soulcare.jpeg`,
+    "@graph": [
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${baseUrl}/blog/${post.slug}#webpage`,
+        "url": `${baseUrl}/blog/${post.slug}`,
+        "name": title,
+        "description": excerpt,
+        "isPartOf": { "@id": `${baseUrl}/#website` },
+        "about": {
+          "@type": "MedicalCondition",
+          "name": categoryName
+        },
+        "author": {
+          "@type": "Person",
+          "@id": `${baseUrl}/#monika`,
+          "name": authorName,
+          "jobTitle": "Counselling Psychologist",
+          "url": `${baseUrl}/about`
+        },
+        "publisher": {
+          "@id": `${baseUrl}/#organization`
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", ".article-intro", ".post-excerpt"]
+        },
+        "lastReviewed": post.updated_at || post.created_at || new Date().toISOString(),
+        "reviewedBy": {
+          "@type": "Person",
+          "@id": `${baseUrl}/#monika`
+        }
       },
-    },
+      {
+        "@type": "Article",
+        "headline": title,
+        "description": excerpt,
+        "mainEntityOfPage": { "@id": `${baseUrl}/blog/${post.slug}#webpage` },
+        "author": {
+          "@type": "Person",
+          "@id": `${baseUrl}/#monika`,
+          "name": authorName,
+          "jobTitle": "Counselling Psychologist",
+          "url": `${baseUrl}/about`
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Soulcare by Monika Arora",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${baseUrl}/images/logo_soulcare.jpeg`
+          }
+        },
+        ...(image ? { "image": image.startsWith("http") ? image : `${baseUrl}${image}` } : {}),
+        ...(post.created_at ? { "datePublished": post.created_at } : {}),
+        ...(post.updated_at ? { "dateModified": post.updated_at } : {})
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${baseUrl}/blog` },
+          { "@type": "ListItem", "position": 3, "name": title, "item": `${baseUrl}/blog/${post.slug}` }
+        ]
+      }
+    ]
   };
 
-  if (image) {
-    articleSchema.image = image.startsWith('http') ? image : `${baseUrl}${image}`;
-  }
 
   return (
     <>

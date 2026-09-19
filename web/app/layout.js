@@ -44,7 +44,21 @@ export default function RootLayout({ children }) {
           "addressRegion": "Uttarakhand",
           "addressCountry": "IN"
         },
-        "description": siteInfo.tagline
+        "description": siteInfo.tagline,
+        "medicalSpecialty": [
+          "Psychiatry",
+          "MentalHealth"
+        ],
+        "availableService": [
+          { "@type": "MedicalTherapy", "name": "Individual Counselling" },
+          { "@type": "MedicalTherapy", "name": "Couple Therapy" },
+          { "@type": "MedicalTherapy", "name": "Family Therapy" },
+          { "@type": "MedicalTherapy", "name": "Adolescence Counselling" },
+          { "@type": "MedicalTherapy", "name": "Cognitive Behaviour Therapy (CBT)" },
+          { "@type": "MedicalTherapy", "name": "Trauma & PTSD Support" },
+          { "@type": "MedicalTherapy", "name": "Anxiety & Depression Counselling" }
+        ],
+        "founder": { "@id": "https://soulcarebymonika.com/#monika" }
       },
       {
         "@type": "Person",
@@ -58,7 +72,51 @@ export default function RootLayout({ children }) {
         ],
         "worksFor": {
           "@id": "https://soulcarebymonika.com/#organization"
-        }
+        },
+        "knowsAbout": [
+          "Cognitive Behaviour Therapy",
+          "Psychodynamic Therapy",
+          "Anxiety",
+          "Depression",
+          "Stress and Burnout",
+          "PTSD and Trauma",
+          "Grief and Loss",
+          "Relationship Counselling",
+          "Adolescent Mental Health",
+          "Addiction Counselling",
+          "Family Therapy",
+          "Personal Growth",
+          "OCD",
+          "Sleep Disorders",
+          "Anger Management"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Academic background in Psychology"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Guidance & Counselling"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Child Guidance & Counselling"
+          }
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Counselling Psychologist",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Dehradun"
+          },
+          "skills": "CBT, Psychodynamic Therapy, Adolescent Counselling, Trauma Support, Family Therapy"
+        },
+        "description": "Monika Arora is a Counselling Psychologist based in Dehradun, India, specialising in CBT and psychodynamic therapy for adolescents and adults. She founded Soulcare in May 2025 and has supported over 100 clients."
       }
     ]
   };
