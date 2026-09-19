@@ -38,6 +38,9 @@ export default function RootLayout({ children }) {
         "@id": "https://soulcarebymonika.com/#organization",
         "url": "https://soulcarebymonika.com/",
         "email": "info@soulcarebymonika.com",
+        "telephone": "+917017178277",
+
+        "priceRange": "₹₹",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Dehradun",
