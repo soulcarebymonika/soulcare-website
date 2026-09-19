@@ -26,9 +26,11 @@ try {
         .header { background: #2E4C63; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .header a.logout { color: #fff; text-decoration: none; background: #9C4719; padding: 8px 12px; border-radius: 4px; }
         .container { padding: 20px; max-width: 1000px; margin: 0 auto; }
-        .btn-create { display: inline-block; background: #28a745; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; margin-bottom: 20px; font-weight: bold; }
-        .btn-reviews { display: inline-block; background: #2E4C63; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; margin-left: 10px; margin-bottom: 20px; font-weight: bold; }
-        .badge-count { background: #9C4719; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: 6px; }
+        .btn-create { display: inline-flex; align-items: center; background: #28a745; color: #fff !important; padding: 10px 16px; text-decoration: none !important; border-radius: 4px; margin-bottom: 20px; font-weight: bold; cursor: pointer; transition: opacity 0.2s; }
+        .btn-create:hover { opacity: 0.9; }
+        .btn-reviews { display: inline-flex; align-items: center; gap: 6px; background: #2E4C63; color: #fff !important; padding: 10px 16px; text-decoration: none !important; border-radius: 4px; margin-left: 10px; margin-bottom: 20px; font-weight: bold; cursor: pointer; transition: opacity 0.2s; }
+        .btn-reviews:hover { opacity: 0.9; }
+        .badge-count { background: #9C4719; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: 4px; pointer-events: none; }
         table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
         th { background: #f8f9fa; }
