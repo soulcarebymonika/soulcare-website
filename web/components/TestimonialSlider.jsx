@@ -3,11 +3,37 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import TestimonialCard from './TestimonialCard';
+import Link from 'next/link';
 
-export default function TestimonialSlider({ testimonials }) {
+export default function TestimonialSlider({ testimonials = [] }) {
+  const [allTestimonials, setAllTestimonials] = useState(testimonials);
   const [currentPage, setCurrentPage] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
   const touchStartX = useRef(null);
+
+  // Fetch approved live reviews from PHP backend (newest first)
+  useEffect(() => {
+    const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL;
+    if (!adminUrl) return;
+
+    fetch(`${adminUrl}/get_reviews.php`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success" && Array.isArray(data.data) && data.data.length > 0) {
+          const liveReviews = data.data.map((r) => ({
+            id: `live-${r.id}`,
+            quote: r.review,
+            author: r.name,
+            meta: "Verified Client",
+            rating: parseInt(r.rating, 10),
+          }));
+          setAllTestimonials([...liveReviews, ...testimonials]);
+        }
+      })
+      .catch(() => {
+        // Fallback to initial testimonials if fetch fails
+      });
+  }, [testimonials]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,7 +51,7 @@ export default function TestimonialSlider({ testimonials }) {
   }, []);
 
   // Total pages based on grouping by visibleCards
-  const totalPages = Math.ceil(testimonials.length / visibleCards);
+  const totalPages = Math.ceil(allTestimonials.length / visibleCards);
 
   // Reset page on resize if needed
   useEffect(() => {
@@ -72,7 +98,7 @@ export default function TestimonialSlider({ testimonials }) {
               className="w-full flex-shrink-0 grid gap-4 px-2 sm:px-4"
               style={{ gridTemplateColumns: `repeat(${visibleCards}, minmax(0, 1fr))` }}
             >
-              {testimonials
+              {allTestimonials
                 .slice(pageIdx * visibleCards, pageIdx * visibleCards + visibleCards)
                 .map((testimonial) => (
                   <div
@@ -85,6 +111,17 @@ export default function TestimonialSlider({ testimonials }) {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Leave a Review button */}
+      <div className="flex justify-center mt-6">
+        <Link
+          href="/leave-a-review"
+          className="inline-flex items-center gap-2 px-8 py-3 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 shadow-md bg-accent text-white"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+          Leave a Review
+        </Link>
       </div>
 
       {/* Navigation row: prev arrow · dots · next arrow */}

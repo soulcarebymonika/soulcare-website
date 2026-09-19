@@ -7,18 +7,28 @@ $sql = "SELECT * FROM blog_posts ORDER BY created_at DESC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $posts = $stmt->fetchAll();
+
+// Count pending reviews needing verification
+$pending_count = 0;
+try {
+    $pending_count = (int)$pdo->query("SELECT COUNT(*) FROM reviews WHERE approved = 0")->fetchColumn();
+} catch (Exception $e) {
+    // Table might not exist yet before SQL setup
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard - Blog Admin</title>
+    <title>Dashboard - Soulcare Admin</title>
     <style>
         body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        .header { background: #333; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .header a { color: #fff; text-decoration: none; background: #dc3545; padding: 8px 12px; border-radius: 4px; }
+        .header { background: #2E4C63; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header a.logout { color: #fff; text-decoration: none; background: #9C4719; padding: 8px 12px; border-radius: 4px; }
         .container { padding: 20px; max-width: 1000px; margin: 0 auto; }
-        .btn-create { display: inline-block; background: #28a745; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; margin-bottom: 20px; }
+        .btn-create { display: inline-block; background: #28a745; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; margin-bottom: 20px; font-weight: bold; }
+        .btn-reviews { display: inline-block; background: #2E4C63; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; margin-left: 10px; margin-bottom: 20px; font-weight: bold; }
+        .badge-count { background: #9C4719; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: 6px; }
         table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
         th { background: #f8f9fa; }
@@ -28,15 +38,21 @@ $posts = $stmt->fetchAll();
 </head>
 <body>
     <div class="header">
-        <h2>Blog Admin Dashboard</h2>
+        <h2>Soulcare Admin Dashboard</h2>
         <div>
             <span>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</span>
-            <a href="logout.php" style="margin-left: 15px;">Logout</a>
+            <a href="logout.php" class="logout" style="margin-left: 15px;">Logout</a>
         </div>
     </div>
     
     <div class="container">
-        <a href="create.php" class="btn-create">Create New Post</a>
+        <a href="create.php" class="btn-create">+ Create New Post</a>
+        <a href="reviews.php" class="btn-reviews">
+            ★ Manage Reviews
+            <?php if ($pending_count > 0): ?>
+                <span class="badge-count"><?= $pending_count ?> PENDING</span>
+            <?php endif; ?>
+        </a>
         
         <table>
             <thead>
