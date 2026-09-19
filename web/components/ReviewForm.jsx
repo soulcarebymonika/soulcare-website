@@ -40,8 +40,16 @@ export default function ReviewForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = await res.json();
-      if (data.status === "success") {
+
+      const responseText = await res.text();
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (e) {
+        throw new Error("Unable to connect to backend server. Please upload submit_review.php to Hostinger admin folder.");
+      }
+
+      if (res.ok && data.status === "success") {
         setStatus("success");
         setFormData({ name: "", rating: 0, review: "" });
         setIsAnonymous(false);
@@ -49,7 +57,11 @@ export default function ReviewForm() {
         throw new Error(data.message || "Something went wrong.");
       }
     } catch (err) {
-      setErrorMsg(err.message || "Unable to submit. Please try again.");
+      setErrorMsg(
+        err.message === "Failed to fetch"
+          ? "Unable to reach server. Please ensure PHP backend files are uploaded to Hostinger."
+          : err.message || "Unable to submit review. Please try again."
+      );
       setStatus("error");
     }
   };
