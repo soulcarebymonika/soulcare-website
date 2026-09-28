@@ -4,36 +4,65 @@ import { ArrowRight } from 'lucide-react';
 import { siteInfo, about, testimonials } from "@/lib/content";
 import TestimonialSlider from '@/components/TestimonialSlider';
 import ConcernsAccordion from '@/components/ConcernsAccordion';
+import HelpWithCards from '@/components/HelpWithCards';
 import FAQSection from '@/components/FAQSection';
 
 const homeFaqs = [
   {
-    question: "What is Cognitive Behaviour Therapy (CBT)?",
-    answer: "CBT helps clients identify unhelpful thought patterns and develop healthier emotional and behavioural responses."
+    question: "When Should I See A Psychologist?",
+    answer: "You might consider seeing a psychologist if you feel overwhelmed by emotions, struggle with persistent anxiety or low mood, face major life changes, or find that stress is interfering with your daily routine, relationships, or work. Therapy provides a warm, confidential space to process your thoughts and gain clarity."
   },
   {
-    question: "What is a Person-Centred Approach?",
-    answer: "It focuses on creating a safe, empathetic and non-judgmental space where clients can explore their emotions and experiences openly."
+    question: "Is Counselling Helpful For Anxiety?",
+    answer: "Yes, counselling is highly effective for anxiety. Through evidence-based approaches like Cognitive Behavioural Therapy (CBT) and mindfulness techniques, counselling helps you understand anxiety triggers, reframe racing thoughts, and learn practical grounding tools to regain a sense of calm."
   },
   {
-    question: "How does the Psychodynamic-Informed Approach work?",
-    answer: "This approach explores underlying emotional patterns, past experiences, defence mechanisms and relationship dynamics that may influence present difficulties."
+    question: "What Does Anxiety Feel Like?",
+    answer: "Anxiety can manifest both emotionally and physically. Emotionally, it feels like constant worry, restlessness, dread, or a mind that won't quiet down. Physically, you might experience a racing heart, shallow breathing, muscle tension, or difficulty sleeping. Therapy helps you navigate both."
   },
   {
-    question: "What is Rational Emotive Behaviour Therapy (REBT)?",
-    answer: "REBT works with unhelpful or irrational beliefs that contribute to emotional distress and helps in developing more balanced ways of thinking."
+    question: "Does Counselling Work For Depression?",
+    answer: "Yes, counselling is a proven treatment for depression. It helps unpack negative thought cycles, emotional numbness, low motivation, and feelings of hopelessness. Together, we work at your pace to rebuild self-compassion, establish meaningful routines, and reconnect with energy and purpose."
   },
   {
-    question: "What is Solution-Focused Brief Therapy?",
-    answer: "This therapy focuses on strengths, practical solutions and achievable goals to help clients move forward."
+    question: "What Is Exposure And Response Prevention (ERP) Therapy?",
+    answer: "Exposure and Response Prevention (ERP) is a specialized form of Cognitive Behavioural Therapy primarily used for OCD and severe anxiety. It involves gradually exposing you to anxiety-provoking situations or thoughts while learning to resist compulsive behaviors, helping your mind realize the distress passes naturally."
   },
   {
-    question: "What does Supportive Counselling involve?",
-    answer: "It involves providing emotional support, coping strategies and guidance during challenging periods and life transitions."
+    question: "Who Needs Personality Disorder Therapy?",
+    answer: "Personality disorder therapy is beneficial for individuals who experience persistent difficulty with mood regulation, intense or unstable relationships, self-identity challenges, or impulsive behaviors. Structured therapeutic approaches offer support to build emotional stability and healthy coping mechanisms."
   },
   {
-    question: "How are Mindfulness-Based Techniques used?",
-    answer: "These techniques use mindfulness and awareness to support emotional regulation, stress management and greater self-awareness."
+    question: "What Do People Who've Faced Trauma Feel?",
+    answer: "Trauma survivors often experience hypervigilance, sudden flashbacks, emotional numbness, difficulty trusting others, or a persistent sense of threat. You might also feel guilt, detachment, or anxiety. Therapy provides a safe space to process traumatic memories gently and reclaim internal safety."
+  },
+  {
+    question: "What Are Aptitude And Personality Assessment Tests For?",
+    answer: "Aptitude and personality tests are structured psychometric tools that help identify your innate strengths, career inclinations, personality traits, and problem-solving abilities. They offer valuable clarity for academic choices, career direction, and personal self-awareness."
+  },
+  {
+    question: "What Happens During Age Regression Therapy?",
+    answer: "Age regression therapy is a technique where a guided relaxed state helps you access earlier memories or emotional states related to present difficulties. This process allows us to safely explore, understand, and heal long-held subconscious patterns or unresolved childhood distress."
+  },
+  {
+    question: "When Do Teenagers Need Counselling?",
+    answer: "Teenagers may benefit from counselling when they display sudden shifts in mood, withdrawal from family or friends, academic decline, self-harm concerns, extreme stress over identity or peer pressure, or persistent anxiety. Therapy offers teens an unbiased, empathetic space to express themselves freely."
+  },
+  {
+    question: "How Does Teenage Counselling Therapy Help?",
+    answer: "Teenage counselling equips young people with emotional regulation skills, effective communication, and healthy coping tools. It builds self-esteem, helps navigate peer and family dynamics, and provides a safe outlet to process academic and social stress without feeling judged."
+  },
+  {
+    question: "When Does Your Child Need ADHD Counselling?",
+    answer: "A child may need ADHD counselling if they consistently struggle with attention, executive function, hyperactivity, impulse control, or frustration tolerance that affects their school performance and social interactions. Counselling helps children develop organizational strategies, self-regulation techniques, and positive self-worth."
+  },
+  {
+    question: "Can Couples Counselling Help Prevent Divorces?",
+    answer: "Yes, couples counselling can help partners navigate deep-rooted conflicts, communication breakdowns, loss of intimacy, or broken trust before resentment leads to separation. It provides a structured, neutral space to hear each other, rebuild emotional intimacy, and decide on a constructive path forward together."
+  },
+  {
+    question: "Can One Partner Attend Counselling?",
+    answer: "Individual relationship counselling allows one partner to gain personal clarity, set healthier boundaries, improve communication style, and explore relationship dynamics—which often positively influences the relationship as a whole even if only one partner attends."
   }
 ];
 
@@ -242,10 +271,16 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Card grid */}
+        <div className="max-w-6xl mx-auto mb-12 md:mb-14">
+          <HelpWithCards />
+        </div>
+
+        {/* Detail row: image + accordion */}
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-16">
 
-            {/* Left: Image (50% width on desktop) */}
+            {/* Left: Image */}
             <div className="w-full lg:w-1/2 shrink-0 min-h-[300px] lg:min-h-auto relative rounded-sm overflow-hidden shadow-sm">
               <Image
                 src="/images/cozy-window.webp"
@@ -255,7 +290,7 @@ export default function Home() {
               />
             </div>
 
-            {/* Right: Concerns Accordion (50% width on desktop) */}
+            {/* Right: Concerns Accordion */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center text-left">
               <ConcernsAccordion />
             </div>
@@ -489,8 +524,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── THERAPEUTIC APPROACHES (FAQ) ───────────────────────────────────────── */}
-      <FAQSection faqs={homeFaqs} title="Therapeutic Approaches" bgClass="bg-white" />
+      {/* ─── FREQUENTLY ASKED QUESTIONS ───────────────────────────────────────── */}
+      <FAQSection faqs={homeFaqs} title="Frequently Asked Questions" bgClass="bg-white" />
 
       {/* ─── 6. CLOSING CTA ──────────────────────────────────────────────────────
            Navy full-bleed section. Headline + CTA. No dead ends.             */}
