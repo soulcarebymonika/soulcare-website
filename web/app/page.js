@@ -194,7 +194,7 @@ export default function Home() {
               </video>
               <div className="absolute inset-0 flex items-end p-5 bg-gradient-to-t from-black/60 to-transparent opacity-100">
                 <span className="text-[10px] font-semibold tracking-widest uppercase text-secondary">
-                  Monika Arora · Counseling Psychologist
+                  Monika Arora · Counselling Psychologist
                 </span>
               </div>
             </div>
@@ -450,7 +450,7 @@ export default function Home() {
                   Individual Adults
                 </h3>
                 <p className="text-white/80 text-xs sm:text-sm leading-relaxed opacity-0 max-h-0 translate-y-4 group-hover:opacity-100 group-hover:max-h-[100px] group-hover:translate-y-0 transition-all duration-500 ease-out">
-                  One-on-one virtual counseling to address anxiety, depression, trauma recovery, and life transitions.
+                  One-on-one virtual counselling to address anxiety, depression, trauma recovery, and life transitions.
                 </p>
                 <div className="mt-3 flex items-center text-white/90 text-xs font-bold tracking-wider uppercase gap-2 group-hover:text-white transition-colors">
                   Learn More <span className="transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>

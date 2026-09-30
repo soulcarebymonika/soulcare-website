@@ -42,6 +42,14 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap_v2.xml',
+        destination: '/sitemap_v2.xml',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

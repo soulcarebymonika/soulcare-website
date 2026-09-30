@@ -31,7 +31,7 @@ const bookFaqs = [
 ];
 
 export const metadata = {
-  title: 'Book a Therapy Session | Online Counseling Inquiry',
+  title: 'Book a Therapy Session | Online Counselling Inquiry',
   description: 'Book your first therapy session with psychologist Monika Arora. Get started on your healing and self-growth journey today.',
 };
 

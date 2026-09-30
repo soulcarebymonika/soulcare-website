@@ -1,7 +1,7 @@
 import { Heart, Infinity as Spiral, Sparkles, Leaf } from 'lucide-react';
 
 const iconMap = {
-  "counseling": <Heart size={24} strokeWidth={1.5} />,
+  "counselling": <Heart size={24} strokeWidth={1.5} />,
   "emotional-wellbeing": <Spiral size={24} strokeWidth={1.5} />,
   "self-growth": <Sparkles size={24} strokeWidth={1.5} />,
   "mental-wellness": <Leaf size={24} strokeWidth={1.5} />,

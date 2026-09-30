@@ -27,8 +27,8 @@ const sessionsFaqs = [
 ];
 
 export const metadata = {
-  title: 'Counseling Services | Individual, Couple & Family Therapy',
-  description: 'Explore online and in-person counseling services for adults, adolescents, couples, and families. Confidential support from psychologist Monika Arora.',
+  title: 'Counselling Services | Individual, Couple & Family Therapy',
+  description: 'Explore online and in-person counselling services for adults, adolescents, couples, and families. Confidential support from psychologist Monika Arora.',
 };
 
 import { User, Users, GraduationCap, Leaf, Heart, ArrowRight } from "lucide-react";

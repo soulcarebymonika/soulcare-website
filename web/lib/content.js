@@ -7,8 +7,8 @@ export const siteInfo = {
 
 export const services = [
   {
-    id: "counseling",
-    title: "Counseling & Psychology",
+    id: "counselling",
+    title: "Counselling & Psychology",
     description: "I start every session by listening first — no judgment, no rushing. One-on-one virtual sessions for everyday psychological challenges, in a space that's entirely yours.",
   },
   {
@@ -222,7 +222,7 @@ export const blogPosts = [
     excerpt: "Learn how to establish healthy boundaries, overcome people-pleasing tendencies, and protect your mental energy without feeling guilty.",
     content: "<p class='mb-6'>For many of us, saying 'yes' is a default setting. We agree to take on extra projects, attend social events we are too tired for, and absorb the emotional weight of others. This chronic people-pleasing often stems from a fear of conflict or rejection. However, the inability to set <strong>healthy boundaries</strong> is a fast track to burnout and resentment.</p><h2 class='text-2xl font-heading font-semibold text-[var(--color-navy)] mt-10 mb-4'>What Boundaries Actually Are</h2><p class='mb-6'>A boundary is simply an invisible line that defines where you end and someone else begins. It dictates what you are responsible for (your own emotions and behaviors) and what you are not responsible for (other people's reactions). Boundaries are not walls meant to keep people out; they are guidelines meant to keep you safe.</p><h2 class='text-2xl font-heading font-semibold text-[var(--color-navy)] mt-10 mb-4'>Overcoming the Guilt</h2><p class='mb-6'>The most common barrier to setting boundaries is guilt. We are conditioned to believe that prioritizing our own needs is selfish. In therapy, we work on <strong>cognitive reframing</strong>: understanding that setting boundaries is actually an act of self-respect, and it enables you to show up more authentically in your relationships.</p><h2 class='text-2xl font-heading font-semibold text-[var(--color-navy)] mt-10 mb-4'>How to Start Saying No</h2><ul class='list-disc pl-6 mb-6 space-y-2'><li class='mb-2'><strong>The Pause:</strong> Instead of answering immediately, say: <em>'Let me check my schedule and get back to you.'</em> This buys you time to decide if you actually want to do something.</li><li class='mb-2'><strong>Keep it Simple:</strong> You do not owe anyone a lengthy explanation. <em>'No, I won't be able to make it'</em> or <em>'I don't have the capacity for that right now'</em> are complete sentences.</li></ul>",
     image: "/images/blogs/blog-8.jpg",
-    relatedService: { title: "Counseling & Psychology", url: "/sessions" },
+    relatedService: { title: "Counselling & Psychology", url: "/sessions" },
   },
   {
     slug: "sleep-and-emotional-regulation-connection",
@@ -241,8 +241,8 @@ export const faqs = [
     answer: "Sessions are typically 50 minutes long and conducted via a secure video conferencing platform. We will explore your current challenges, set goals, and work collaboratively towards your healing.",
   },
   {
-    question: "Is online counseling as effective as in-person?",
-    answer: "Yes, research consistently shows that online counseling can be just as effective as face-to-face therapy for many issues, with the added benefit of being in the comfort of your own home.",
+    question: "Is online counselling as effective as in-person?",
+    answer: "Yes, research consistently shows that online counselling can be just as effective as face-to-face therapy for many issues, with the added benefit of being in the comfort of your own home.",
   },
   {
     question: "Is everything confidential?",
