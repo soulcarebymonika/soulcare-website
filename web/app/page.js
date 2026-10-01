@@ -110,12 +110,13 @@ export default function Home() {
           />
         </div>
 
-        {/* Background Video */}
+        {/* Background Video — preload="none" defers the 6MB video after LCP */}
         <video
           autoPlay
           loop
           muted
           playsInline
+          preload="none"
           poster="/images/hero-bg-beach-poster.webp"
           aria-label="Calming beach background video"
           className="absolute inset-0 w-full h-full object-cover z-10"

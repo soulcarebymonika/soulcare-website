@@ -148,6 +148,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${fraunces.variable} h-full`}>
       <head>
         <SchemaMarkup schema={globalSchema} />
+        {/* Preconnect to key origins for LCP improvement (~300ms savings) */}
+        <link rel="preconnect" href="https://admin.soulcarebymonika.com" />
+        <link rel="dns-prefetch" href="https://admin.soulcarebymonika.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className="min-h-full flex flex-col font-body">
         {/* ── Google Analytics 4 ──────────────────────────────────────────────
