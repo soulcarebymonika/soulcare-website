@@ -181,7 +181,7 @@ export default async function BlogPost({ params }) {
           "name": "Soulcare by Monika Arora",
           "logo": {
             "@type": "ImageObject",
-            "url": `${baseUrl}/images/logo_soulcare.jpeg`
+            "url": `${baseUrl}/images/logo_soulcare.webp`
           }
         },
         ...(image ? { "image": image.startsWith("http") ? image : `${baseUrl}${image}` } : {}),

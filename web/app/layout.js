@@ -37,6 +37,13 @@ export const metadata = {
   alternates: {
     canonical: './',
   },
+  icons: {
+    icon: [
+      { url: '/icon.jpg', type: 'image/jpeg' },
+    ],
+    shortcut: '/icon.jpg',
+    apple: '/icon.jpg',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -47,7 +54,7 @@ export default function RootLayout({ children }) {
         "@type": ["MedicalBusiness", "LocalBusiness", "ProfessionalService"],
         "name": siteInfo.name,
         "image": "https://www.soulcarebymonika.com/images/monika-portrait.png",
-        "logo": "https://www.soulcarebymonika.com/images/logo_soulcare.jpeg",
+        "logo": "https://www.soulcarebymonika.com/images/logo_soulcare.webp",
         "@id": "https://www.soulcarebymonika.com/#organization",
         "url": "https://www.soulcarebymonika.com/",
         "email": "info@soulcarebymonika.com",
