@@ -33,7 +33,7 @@ export const metadata = {
   title: 'Privacy Policy | Soulcare by Monika Arora',
   description: 'Read the Soulcare privacy policy to understand how personal information is collected, used, protected, and handled during counselling services.',
   alternates: {
-    canonical: '/privacy',
+    canonical: 'https://www.soulcarebymonika.com/privacy',
   }
 };
 

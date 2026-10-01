@@ -29,6 +29,9 @@ const aboutFaqs = [
 export const metadata = {
   title: 'About Monika Arora | Counselling Psychologist',
   description: 'Meet Monika Arora, a Counselling Psychologist and Guidance Professional offering a warm, supportive space for adolescents and adults through Soulcare.',
+  alternates: {
+    canonical: 'https://soulcarebymonika.com/about',
+  },
 };
 
 export default function About() {

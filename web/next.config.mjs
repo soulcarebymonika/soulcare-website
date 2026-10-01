@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  trailingSlash: false,
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
@@ -39,14 +40,6 @@ const nextConfig = {
         source: '/services/:path*',
         destination: '/sessions/:path*',
         permanent: true,
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap_v2.xml',
-        destination: '/sitemap_v2.xml',
       },
     ];
   },

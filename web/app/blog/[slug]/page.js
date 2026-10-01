@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const baseUrl = "https://soulcarebymonika.com";
+  const baseUrl = "https://www.soulcarebymonika.com";
 
   const defaults = {
     title: "Blog Post | Soulcare by Monika Arora",
@@ -129,7 +129,7 @@ export default async function BlogPost({ params }) {
       };
     });
 
-  const baseUrl = "https://soulcarebymonika.com";
+  const baseUrl = "https://www.soulcarebymonika.com";
   const articleSchema = {
     "@context": "https://schema.org",
     "@graph": [

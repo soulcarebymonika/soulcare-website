@@ -29,6 +29,9 @@ const testimonialFaqs = [
 export const metadata = {
   title: 'Client Testimonials & Feedback | Soulcare',
   description: 'Read reviews and personal stories from clients who have experienced emotional healing and self-growth through therapy with Monika Arora.',
+  alternates: {
+    canonical: 'https://www.soulcarebymonika.com/testimonials',
+  },
 };
 
 export default function Testimonials() {

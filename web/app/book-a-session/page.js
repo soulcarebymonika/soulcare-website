@@ -33,6 +33,9 @@ const bookFaqs = [
 export const metadata = {
   title: 'Book a Therapy Session | Online Counselling Inquiry',
   description: 'Book your first therapy session with psychologist Monika Arora. Get started on your healing and self-growth journey today.',
+  alternates: {
+    canonical: 'https://www.soulcarebymonika.com/book-a-session',
+  },
 };
 
 export default function BookASession() {

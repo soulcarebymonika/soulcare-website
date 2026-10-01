@@ -1,5 +1,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Strip trailing slashes (except root)
+  RewriteCond %{REQUEST_URI} ^(.+)/$
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # Legacy /services → /sessions redirects
   RewriteRule ^services/(.*)$ /sessions/$1 [R=301,L]
   RewriteRule ^services/?$ /sessions [R=301,L]
 </IfModule>

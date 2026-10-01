@@ -6,6 +6,9 @@ export const metadata = {
   title: "Blog",
   description:
     "Insights and articles on mental wellness and emotional healing.",
+  alternates: {
+    canonical: "https://soulcarebymonika.com/blog",
+  },
 };
 
 export default async function Blog() {

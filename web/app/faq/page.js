@@ -5,6 +5,9 @@ import FAQSection from "@/components/FAQSection";
 export const metadata = {
   title: 'Therapy FAQ & Session Details | Soulcare',
   description: 'Find answers to common questions about online counselling, confidentiality, session booking, and fees with psychologist Monika Arora.',
+  alternates: {
+    canonical: 'https://www.soulcarebymonika.com/faq',
+  },
 };
 
 export default function FAQ() {

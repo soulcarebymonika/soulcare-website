@@ -88,7 +88,7 @@ const categoryFaqs = {
 
 export async function generateMetadata({ params }) {
   const { category } = await params;
-  const baseUrl = "https://soulcarebymonika.com";
+  const baseUrl = "https://www.soulcarebymonika.com";
   const header = categoryHeaders[category];
   const metaTitle = header?.metaTitle || "Service Category";
   const metaDescription = header?.description || `Explore our specific services for ${metaTitle}.`;
@@ -118,7 +118,7 @@ export default async function CategoryPage({ params }) {
     );
   }
 
-  const baseUrl = "https://soulcarebymonika.com";
+  const baseUrl = "https://www.soulcarebymonika.com";
   const metaTitle = headerData.metaTitle;
   const pageSchema = {
     "@context": "https://schema.org",

@@ -4,7 +4,7 @@ import { getPosts } from "@/lib/api";
 export const dynamic = 'force-static';
 
 export default async function sitemap() {
-  const baseUrl = 'https://soulcarebymonika.com';
+  const baseUrl = 'https://www.soulcarebymonika.com';
   
   // 1. Static Routes
   const staticRoutes = [

@@ -17,7 +17,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://soulcarebymonika.com"),
+  metadataBase: new URL("https://www.soulcarebymonika.com"),
   title: {
     template: `%s | ${siteInfo.name}`,
     default: siteInfo.name,
@@ -35,7 +35,7 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: '/',
+    canonical: './',
   },
 };
 
@@ -46,10 +46,10 @@ export default function RootLayout({ children }) {
       {
         "@type": ["MedicalBusiness", "LocalBusiness", "ProfessionalService"],
         "name": siteInfo.name,
-        "image": "https://soulcarebymonika.com/images/monika-portrait.png",
-        "logo": "https://soulcarebymonika.com/images/logo_soulcare.jpeg",
-        "@id": "https://soulcarebymonika.com/#organization",
-        "url": "https://soulcarebymonika.com/",
+        "image": "https://www.soulcarebymonika.com/images/monika-portrait.png",
+        "logo": "https://www.soulcarebymonika.com/images/logo_soulcare.jpeg",
+        "@id": "https://www.soulcarebymonika.com/#organization",
+        "url": "https://www.soulcarebymonika.com/",
         "email": "info@soulcarebymonika.com",
         "telephone": "+917017178277",
 
@@ -74,20 +74,20 @@ export default function RootLayout({ children }) {
           { "@type": "MedicalTherapy", "name": "Trauma & PTSD Support" },
           { "@type": "MedicalTherapy", "name": "Anxiety & Depression Counselling" }
         ],
-        "founder": { "@id": "https://soulcarebymonika.com/#monika" }
+        "founder": { "@id": "https://www.soulcarebymonika.com/#monika" }
       },
       {
         "@type": "Person",
-        "@id": "https://soulcarebymonika.com/#monika",
+        "@id": "https://www.soulcarebymonika.com/#monika",
         "name": "Monika Arora",
         "jobTitle": "Counselling Psychologist",
-        "url": "https://soulcarebymonika.com/about",
-        "image": "https://soulcarebymonika.com/images/monika-portrait.png",
+        "url": "https://www.soulcarebymonika.com/about",
+        "image": "https://www.soulcarebymonika.com/images/monika-portrait.png",
         "sameAs": [
           siteInfo.instagram
         ],
         "worksFor": {
-          "@id": "https://soulcarebymonika.com/#organization"
+          "@id": "https://www.soulcarebymonika.com/#organization"
         },
         "knowsAbout": [
           "Cognitive Behaviour Therapy",
