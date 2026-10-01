@@ -280,26 +280,27 @@ export default function HelpWithCards() {
 
         {/* 9th slot — View More / Show Less card */}
         {!expanded ? (
-          <button
-            onClick={() => setExpanded(true)}
-            className="hwc-card hwc-card--more group bg-white border border-[#CBA378]/25 shadow-sm py-8 px-5 flex flex-col items-center justify-center gap-4 text-center cursor-pointer select-none w-full"
-            aria-label="View all areas I can help with"
-            role="listitem"
-          >
-            {/* Grid + Plus icon */}
-            <div className="hwc-icon-circle w-[130px] h-[130px] rounded-full flex items-center justify-center bg-[#2E4C63]/8 text-[#2E4C63]">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-9 h-9">
-                <rect x="8"  y="8"  width="18" height="18" rx="3" />
-                <rect x="8"  y="38" width="18" height="18" rx="3" />
-                <rect x="38" y="38" width="18" height="18" rx="3" />
-                <line x1="47" y1="8" x2="47" y2="28" />
-                <line x1="37" y1="18" x2="57" y2="18" />
-              </svg>
-            </div>
-            <p className="text-[12px] sm:text-[13px] font-medium leading-snug text-[#2E4C63] group-hover:text-accent transition-colors duration-300">
-              View More
-            </p>
-          </button>
+          <div role="listitem">
+            <button
+              onClick={() => setExpanded(true)}
+              className="hwc-card hwc-card--more group bg-white border border-[#CBA378]/25 shadow-sm py-8 px-5 flex flex-col items-center justify-center gap-4 text-center cursor-pointer select-none w-full"
+              aria-label="View all areas I can help with"
+            >
+              {/* Grid + Plus icon */}
+              <div className="hwc-icon-circle w-[130px] h-[130px] rounded-full flex items-center justify-center bg-[#2E4C63]/8 text-[#2E4C63]">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-9 h-9">
+                  <rect x="8"  y="8"  width="18" height="18" rx="3" />
+                  <rect x="8"  y="38" width="18" height="18" rx="3" />
+                  <rect x="38" y="38" width="18" height="18" rx="3" />
+                  <line x1="47" y1="8" x2="47" y2="28" />
+                  <line x1="37" y1="18" x2="57" y2="18" />
+                </svg>
+              </div>
+              <p className="text-[12px] sm:text-[13px] font-medium leading-snug text-[#2E4C63] group-hover:text-accent transition-colors duration-300">
+                View More
+              </p>
+            </button>
+          </div>
         ) : (
           /* "Show Less" pill button after all cards are visible */
           <div className="col-span-2 sm:col-span-3 flex justify-center mt-2">
