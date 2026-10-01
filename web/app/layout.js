@@ -9,11 +9,14 @@ import SchemaMarkup from "@/components/SchemaMarkup";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
+  display: "swap",
 });
 
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-heading",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata = {

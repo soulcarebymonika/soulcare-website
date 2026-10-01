@@ -2,6 +2,9 @@
 
 const nextConfig = {
   trailingSlash: false,
+  experimental: {
+    browsersListForSwc: true,
+  },
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
