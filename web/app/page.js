@@ -78,6 +78,9 @@ export const metadata = {
   title: 'Online Counselling in India & Dehradun | Soulcare',
   description:
     'Online counselling in India and in-person counselling in Dehradun with Monika Arora, counselling psychologist. Support available in Hindi and English.',
+  alternates: {
+    canonical: 'https://www.soulcarebymonika.com',
+  },
   openGraph: {
     title: 'Online Counselling in India & Dehradun | Soulcare',
     description:

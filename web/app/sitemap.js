@@ -17,6 +17,7 @@ export default async function sitemap() {
     '/book-a-session',
     '/faq',
     '/privacy',
+    '/leave-a-review',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

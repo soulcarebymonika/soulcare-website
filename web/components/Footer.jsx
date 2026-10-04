@@ -8,6 +8,7 @@ export default function Footer() {
     { name: 'About', href: '/about' },
     { name: 'How It Works', href: '/how-it-works' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Testimonials', href: '/testimonials' },
     { name: 'FAQ', href: '/faq' },
   ];
 
@@ -16,6 +17,8 @@ export default function Footer() {
     { name: 'Couple Therapy', href: '/sessions/couple-therapy' },
     { name: 'Family Therapy', href: '/sessions/family-therapy' },
     { name: 'Adolescence Therapy', href: '/sessions/adolescence' },
+    { name: 'Personal Growth', href: '/sessions/personal-growth' },
+    { name: 'Specialized Support', href: '/sessions/specialized-support' },
   ];
 
   const legalLinks = [

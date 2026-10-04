@@ -33,7 +33,7 @@ export const metadata = {
   title: 'My Approach | Soulcare by Monika Arora',
   description: 'A relational & whole-person approach to emotional well-being and therapy.',
   alternates: {
-    canonical: 'https://soulcarebymonika.com/how-it-works',
+    canonical: 'https://www.soulcarebymonika.com/how-it-works',
   },
 };
 

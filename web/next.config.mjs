@@ -2,9 +2,7 @@
 
 const nextConfig = {
   trailingSlash: false,
-  experimental: {
-    browsersListForSwc: true,
-  },
+
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
@@ -36,12 +34,17 @@ const nextConfig = {
     return [
       {
         source: '/services',
-        destination: '/sessions',
+        destination: 'https://www.soulcarebymonika.com/sessions',
         permanent: true,
       },
       {
         source: '/services/:path*',
-        destination: '/sessions/:path*',
+        destination: 'https://www.soulcarebymonika.com/sessions/:path*',
+        permanent: true,
+      },
+      {
+        source: '/blog/why-your-brain-reacts-to-stress-the-way-it-does',
+        destination: 'https://www.soulcarebymonika.com/blog/why-your-brain-reacts-to-stress',
         permanent: true,
       },
     ];

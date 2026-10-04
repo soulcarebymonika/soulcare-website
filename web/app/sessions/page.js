@@ -30,7 +30,7 @@ export const metadata = {
   title: 'Counselling Services | Individual, Couple & Family Therapy',
   description: 'Explore online and in-person counselling services for adults, adolescents, couples, and families. Confidential support from psychologist Monika Arora.',
   alternates: {
-    canonical: 'https://soulcarebymonika.com/sessions',
+    canonical: 'https://www.soulcarebymonika.com/sessions',
   },
 };
 

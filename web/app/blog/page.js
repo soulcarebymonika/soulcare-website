@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Insights and articles on mental wellness and emotional healing.",
   alternates: {
-    canonical: "https://soulcarebymonika.com/blog",
+    canonical: "https://www.soulcarebymonika.com/blog",
   },
 };
 

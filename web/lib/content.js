@@ -161,7 +161,7 @@ export const testimonials = [
 
 export const blogPosts = [
   {
-    slug: "why-your-brain-reacts-to-stress-the-way-it-does",
+    slug: "why-your-brain-reacts-to-stress",
     title: "Why Your Brain Reacts to Stress the Way It Does",
     excerpt: "Understanding the physiological response to stress is the first step towards managing it effectively in our daily lives.",
     content: "Our brains are hardwired for survival. When we encounter a stressful situation, the amygdala—the brain's alarm system—sends a distress signal to the hypothalamus. This triggers the 'fight or flight' response, flooding our bodies with adrenaline and cortisol. While this was useful for our ancestors running from predators, today's stressors—like a tight deadline or an argument—trigger the exact same response. Over time, chronic stress can leave us feeling drained, anxious, and overwhelmed. The good news? By understanding this biological mechanism, we can learn to hit the pause button. Simple practices like deep breathing and mindfulness can signal to the brain that we are safe, helping to lower cortisol levels and restore a sense of calm. You don't have to be controlled by your stress response; you can learn to work with it.",
