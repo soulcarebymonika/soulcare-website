@@ -86,14 +86,9 @@ export default function ReviewForm() {
           {/* Google Review Option */}
           <div>
             <a
-              href={process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL || "#"}
-              target={process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ? "_blank" : undefined}
-              rel={process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ? "noopener noreferrer" : undefined}
-              onClick={(e) => {
-                if (!process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL) {
-                  e.preventDefault();
-                }
-              }}
+              href={process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL || "https://g.page/r/CcR702S58b63EBM/review"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-3.5 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md hover:border-gray-300 text-xs sm:text-sm font-semibold text-navy transition-all duration-300 hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">

@@ -1,4 +1,4 @@
-const WP_API = process.env.NEXT_PUBLIC_WP_API || 'https://soulcarebymonika.com/blog/wp-json/wp/v2';
+const WP_API = process.env.NEXT_PUBLIC_WP_API || 'https://www.soulcarebymonika.com/blog/wp-json/wp/v2';
 
 async function fetchAPI(endpoint) {
   const res = await fetch(`${WP_API}${endpoint}`);
