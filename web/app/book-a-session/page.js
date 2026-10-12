@@ -72,7 +72,10 @@ export default function BookASession() {
             Getting Started
           </h1>
           <p className="text-white/80 font-serif italic mb-8">
-            Please fill out the form below or email me at: {siteInfo.email}
+            Please fill out the form below, email me at: {siteInfo.email}, or call/WhatsApp at:{" "}
+            <a href={`tel:${siteInfo.phoneRaw || '+917017178277'}`} className="underline font-sans not-italic font-bold hover:text-white">
+              {siteInfo.phone || '+91 7017178277'}
+            </a>
           </p>
 
           <BookingForm />

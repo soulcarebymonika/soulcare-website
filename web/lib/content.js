@@ -2,6 +2,8 @@ export const siteInfo = {
   name: "Soulcare by Monika Arora",
   tagline: "A warm, confidential space where you can talk openly, feel heard, and move at your own pace.",
   email: "info@soulcarebymonika.com",
+  phone: "+91 7017178277",
+  phoneRaw: "+917017178277",
   instagram: "https://www.instagram.com/_soulcare_by_monika/",
 };
 

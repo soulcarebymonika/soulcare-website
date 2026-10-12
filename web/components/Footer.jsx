@@ -75,6 +75,16 @@ export default function Footer() {
             </p>
             <div className="flex gap-4 mt-7">
               <a
+                href={`tel:${siteInfo.phoneRaw || '+917017178277'}`}
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 transition-all hover:bg-white/20 hover:-translate-y-0.5 text-white"
+                aria-label="Call +91 7017178277"
+                title="Call +91 7017178277"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </a>
+              <a
                 href={siteInfo.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -154,6 +164,18 @@ export default function Footer() {
             </h4>
             
             <div className="space-y-4 text-sm text-secondary/70">
+              <div>
+                <p className="text-[10.5px] font-bold tracking-[0.15em] uppercase text-secondary mb-1">Phone / WhatsApp</p>
+                <a
+                  href={`tel:${siteInfo.phoneRaw || '+917017178277'}`}
+                  className="inline-flex items-center gap-2 text-[14px] text-secondary/95 hover:text-white transition-colors duration-200 font-medium group"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-primary group-hover:scale-110 transition-transform flex-shrink-0">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  <span>{siteInfo.phone || '+91 7017178277'}</span>
+                </a>
+              </div>
               <div>
                 <p className="text-[10.5px] font-bold tracking-[0.15em] uppercase text-secondary mb-1">In-person sessions</p>
                 <p className="text-[13.5px] text-secondary/75">Race Course, Dehradun</p>

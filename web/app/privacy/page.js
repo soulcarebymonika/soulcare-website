@@ -363,7 +363,7 @@ export default function PrivacyPolicy() {
                 </div>
                 <div>
                   <p className="font-bold text-[#3E4A3D]">Phone:</p>
-                  <p>+91 70171 78277</p>
+                  <p><a href="tel:+917017178277" className="hover:underline text-accent font-semibold">+91 7017178277</a></p>
                 </div>
               </div>
             </div>
