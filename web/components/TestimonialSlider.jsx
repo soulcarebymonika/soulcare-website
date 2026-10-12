@@ -88,14 +88,14 @@ export default function TestimonialSlider({ testimonials = [] }) {
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className="flex transition-transform duration-500 ease-out"
+          className="flex items-start transition-transform duration-500 ease-out"
           style={{ transform: `translateX(-${currentPage * 100}%)` }}
         >
           {/* Group cards into pages */}
           {Array.from({ length: totalPages }).map((_, pageIdx) => (
             <div
               key={pageIdx}
-              className="w-full flex-shrink-0 grid gap-4 px-2 sm:px-4"
+              className="w-full flex-shrink-0 grid gap-4 sm:gap-6 px-2 sm:px-4 items-stretch"
               style={{ gridTemplateColumns: `repeat(${visibleCards}, minmax(0, 1fr))` }}
             >
               {allTestimonials
@@ -103,7 +103,7 @@ export default function TestimonialSlider({ testimonials = [] }) {
                 .map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="min-w-0"
+                    className="min-w-0 flex h-full"
                   >
                     <TestimonialCard testimonial={testimonial} />
                   </div>
