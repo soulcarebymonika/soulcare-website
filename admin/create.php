@@ -4,25 +4,42 @@ require_once "auth.php";
 require_once "config.php";
 require_once "webhook.php";
 
+// Auto-ensure status column exists
+try {
+    $pdo->exec("ALTER TABLE blog_posts ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT 'published'");
+} catch (Exception $e) {}
+
 $title = $slug = $meta_title = $meta_description = $category = $author = $image_alt = $excerpt = $content = "";
+$status = "published";
 $error = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $title = trim($_POST["title"]);
-    $slug = trim($_POST["slug"]);
-    $meta_title = trim($_POST["meta_title"]);
-    $meta_description = trim($_POST["meta_description"]);
-    $category = trim($_POST["category"]) ?: "Mental Wellness";
-    $author = trim($_POST["author"]) ?: "Monika Arora";
-    $image_alt = trim($_POST["image_alt"]);
-    $excerpt = trim($_POST["excerpt"]);
-    $content = trim($_POST["content"]);
+    $title = trim($_POST["title"] ?? "");
+    $slug = trim($_POST["slug"] ?? "");
+    $meta_title = trim($_POST["meta_title"] ?? "");
+    $meta_description = trim($_POST["meta_description"] ?? "");
+    $category = trim($_POST["category"] ?? "") ?: "Mental Wellness";
+    $author = trim($_POST["author"] ?? "") ?: "Monika Arora";
+    $image_alt = trim($_POST["image_alt"] ?? "");
+    $excerpt = trim($_POST["excerpt"] ?? "");
+    $content = trim($_POST["content"] ?? "");
 
-    if(empty($title) || empty($content)){
-        $error = "Please enter a title and content.";
+    // Determine status from submit button or dropdown
+    if (isset($_POST["submit_action"]) && in_array($_POST["submit_action"], ["published", "draft"])) {
+        $status = $_POST["submit_action"];
+    } elseif (isset($_POST["status"]) && in_array($_POST["status"], ["published", "draft"])) {
+        $status = $_POST["status"];
+    } else {
+        $status = "published";
+    }
+
+    if (empty($title)) {
+        $error = "Please enter a post title.";
+    } elseif ($status === "published" && empty($content)) {
+        $error = "Please enter post content before publishing, or click 'Save as Draft' to finish later.";
     }
     
-    if(empty($slug) && !empty($title)) {
+    if (empty($slug) && !empty($title)) {
         $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
     }
 
@@ -40,8 +57,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     if(empty($error)){
-        $sql = "INSERT INTO blog_posts (title, slug, meta_title, meta_description, category, author, image_alt, excerpt, content, image_path) 
-                VALUES (:title, :slug, :meta_title, :meta_description, :category, :author, :image_alt, :excerpt, :content, :image_path)";
+        $sql = "INSERT INTO blog_posts (title, slug, meta_title, meta_description, category, author, image_alt, excerpt, content, image_path, status) 
+                VALUES (:title, :slug, :meta_title, :meta_description, :category, :author, :image_alt, :excerpt, :content, :image_path, :status)";
          
         if($stmt = $pdo->prepare($sql)){
             $stmt->execute([
@@ -54,13 +71,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 ":image_alt" => $image_alt,
                 ":excerpt" => $excerpt,
                 ":content" => $content,
-                ":image_path" => $image_path
+                ":image_path" => $image_path,
+                ":status" => $status
             ]);
             
-            // Trigger Vercel rebuild
-            trigger_vercel_deploy();
-            
-            header("location: index.php");
+            if ($status === 'published') {
+                // Trigger Vercel rebuild for published posts
+                trigger_vercel_deploy();
+                header("location: index.php?msg=published");
+            } else {
+                header("location: index.php?msg=draft_saved");
+            }
             exit();
         }
     }
@@ -70,19 +91,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Post</title>
+    <title>Create Post - Soulcare Admin</title>
     <style>
         body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
         .wrapper { background: #fff; padding: 30px; border-radius: 8px; max-width: 900px; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .section-title { font-size: 1.2em; font-weight: bold; margin: 30px 0 15px; padding-bottom: 5px; border-bottom: 2px solid #eee; }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
-        input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: sans-serif;}
+        input[type="text"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: sans-serif;}
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .btn { padding: 10px 15px; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-        .btn-secondary { background: #6c757d; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 4px; margin-left: 10px; }
-        .error { color: red; margin-bottom: 15px; }
+        .btn-publish { padding: 12px 22px; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; font-weight: bold; transition: opacity 0.2s; }
+        .btn-publish:hover { opacity: 0.9; }
+        .btn-draft { padding: 12px 22px; background: #5a6268; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; font-weight: bold; transition: opacity 0.2s; }
+        .btn-draft:hover { opacity: 0.9; }
+        .btn-secondary { background: #e2e6ea; color: #333; text-decoration: none; padding: 12px 20px; border-radius: 4px; font-weight: bold; display: inline-block; }
+        .error { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 12px; border-radius: 4px; margin-bottom: 20px; }
         .note { font-size: 0.85em; color: #666; margin-top: 4px; display: block; }
+        .status-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 15px; margin-bottom: 25px; }
+        .status-options { display: flex; gap: 20px; margin-top: 8px; }
+        .status-option { display: flex; align-items: center; gap: 6px; cursor: pointer; font-weight: normal; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: bold; }
+        .badge-published { background: #d4edda; color: #155724; }
+        .badge-draft { background: #fff3cd; color: #856404; }
     </style>
     <!-- TinyMCE Rich Text Editor -->
     <script src="https://cdn.tiny.cloud/1/ga1gwyazohtg9irxh55gbsrzgcnouxc1nb4ruto5d98edue9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
@@ -102,6 +132,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <?php if($error) echo "<div class='error'>$error</div>"; ?>
         
         <form action="create.php" method="post" enctype="multipart/form-data">
+
+            <div class="status-box">
+                <label style="margin-bottom: 4px;">Post Status</label>
+                <div class="status-options">
+                    <label class="status-option">
+                        <input type="radio" name="status" value="published" <?php echo ($status === 'published') ? 'checked' : ''; ?>>
+                        <span class="badge badge-published">Published</span> &mdash; Live on soulcarebymonika.com
+                    </label>
+                    <label class="status-option">
+                        <input type="radio" name="status" value="draft" <?php echo ($status === 'draft') ? 'checked' : ''; ?>>
+                        <span class="badge badge-draft">Draft</span> &mdash; Hidden from public, finish & publish later
+                    </label>
+                </div>
+            </div>
             
             <div class="section-title">1. Basic Info & SEO</div>
             <div class="form-group">
@@ -158,13 +202,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             
             <div class="form-group">
-                <label>Main Blog Content *</label>
-                <span class="note" style="margin-bottom: 8px;">Use the toolbar to add Headings, Bullet Lists, and Quotes.</span>
+                <label>Main Blog Content</label>
+                <span class="note" style="margin-bottom: 8px;">Use the toolbar to add Headings, Bullet Lists, and Quotes. (Required only when publishing)</span>
                 <textarea id="content-editor" name="content"><?php echo htmlspecialchars($content); ?></textarea>
             </div>
             
-            <div class="form-group" style="margin-top: 30px;">
-                <input type="submit" class="btn" value="Publish Post">
+            <div class="form-group" style="margin-top: 30px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <button type="submit" name="submit_action" value="published" class="btn-publish">
+                    🚀 Publish Post
+                </button>
+                <button type="submit" name="submit_action" value="draft" class="btn-draft">
+                    💾 Save as Draft
+                </button>
                 <a href="index.php" class="btn-secondary">Cancel</a>
             </div>
         </form>

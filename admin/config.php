@@ -18,6 +18,14 @@ try {
     // Set default fetch mode to associative array
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
-    die("ERROR: Could not connect. " . $e->getMessage());
+    // If MySQL connection fails (e.g., local preview/development), fall back to local SQLite
+    $sqlite_file = __DIR__ . "/database.sqlite";
+    if (file_exists($sqlite_file)) {
+        $pdo = new PDO("sqlite:" . $sqlite_file);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    } else {
+        die("ERROR: Could not connect. " . $e->getMessage());
+    }
 }
 ?>

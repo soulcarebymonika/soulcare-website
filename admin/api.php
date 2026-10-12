@@ -9,7 +9,14 @@ $base_url = "https://admin.soulcarebymonika.com";
 
 if (isset($_GET['slug'])) {
     $slug = $_GET['slug'];
-    $sql = "SELECT * FROM blog_posts WHERE slug = :slug";
+    $preview = isset($_GET['preview']) && ($_GET['preview'] === 'true' || $_GET['preview'] === '1');
+
+    if ($preview) {
+        $sql = "SELECT * FROM blog_posts WHERE slug = :slug";
+    } else {
+        $sql = "SELECT * FROM blog_posts WHERE slug = :slug AND (status = 'published' OR status IS NULL OR status = '')";
+    }
+
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':slug' => $slug]);
     $post = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +30,15 @@ if (isset($_GET['slug'])) {
         echo json_encode(["status" => "error", "message" => "Post not found"]);
     }
 } else {
-    $sql = "SELECT * FROM blog_posts ORDER BY created_at DESC";
+    // Only return published posts for the public blog unless explicitly requested
+    $include_drafts = isset($_GET['include_drafts']) && ($_GET['include_drafts'] === 'true' || $_GET['include_drafts'] === '1');
+
+    if ($include_drafts) {
+        $sql = "SELECT * FROM blog_posts ORDER BY created_at DESC";
+    } else {
+        $sql = "SELECT * FROM blog_posts WHERE (status = 'published' OR status IS NULL OR status = '') ORDER BY created_at DESC";
+    }
+
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);

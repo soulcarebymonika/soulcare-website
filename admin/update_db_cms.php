@@ -7,7 +7,8 @@ $columns = [
     "category" => "TEXT DEFAULT 'Mental Wellness'",
     "author" => "TEXT DEFAULT 'Monika Arora'",
     "image_alt" => "TEXT",
-    "excerpt" => "TEXT"
+    "excerpt" => "TEXT",
+    "status" => "VARCHAR(20) NOT NULL DEFAULT 'published'"
 ];
 
 foreach ($columns as $column => $type) {

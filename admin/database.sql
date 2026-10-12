@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS blog_posts (
     excerpt TEXT,
     content LONGTEXT NOT NULL,
     image_path VARCHAR(255),
+    status VARCHAR(20) NOT NULL DEFAULT 'published',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
