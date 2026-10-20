@@ -4,6 +4,9 @@ export const siteInfo = {
   email: "info@soulcarebymonika.com",
   phone: "+91 7017178277",
   phoneRaw: "+917017178277",
+  whatsapp: "+91 70171 78277",
+  whatsappRaw: "917017178277",
+  whatsappLink: "https://wa.me/917017178277?text=Hi%20Monika%2C%20I%20would%20like%20to%20know%20more%20about%20booking%20a%20session.",
   instagram: "https://www.instagram.com/_soulcare_by_monika/",
 };
 
